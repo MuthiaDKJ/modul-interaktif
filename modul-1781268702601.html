@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Fotosintesis Kelas 8 SMP</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0fff4;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        header {
+            background: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23fff" d="M50 0 L60 30 L90 30 L65 45 L70 70 L50 55 L30 70 L35 45 L10 30 L40 30 Z"/></svg>') repeat;
+            animation: float 6s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateX(-50%) translateY(0); }
+            100% { transform: translateX(-50%) translateY(-20px); }
+        }
+        nav {
+            background: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            background: #27ae60;
+            color: white;
+        }
+        section {
+            padding: 2rem 5%;
+            max-width: 900px;
+            margin: auto;
+        }
+        .content-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .content-box.show { opacity: 1; }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+            margin: 1rem auto;
+        }
+        h2 {
+            color: #27ae60;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.3rem;
+        }
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-left: 4px solid #27ae60;
+            border-radius: 0 6px 6px 0;
+        }
+        .options {
+            margin-top: 0.8rem;
+        }
+        .options label {
+            display: block;
+            margin: 0.4rem 0;
+            cursor: pointer;
+        }
+        .options input {
+            margin-right: 0.5rem;
+        }
+        #result {
+            margin-top: 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+        }
+        #submitQuiz {
+            display: block;
+            margin: 1.5rem auto;
+            padding: 0.8rem 1.5rem;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        #submitQuiz:hover {
+            background: #219150;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.9rem;
+        }
+        .leaf {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%2327ae60" d="M50 0 L60 30 L90 30 L65 45 L70 70 L50 55 L30 70 L35 45 L10 30 L40 30 Z"/></svg>') no-repeat center/contain;
+            pointer-events: none;
+            animation: leafFloat 8s ease-in-out infinite;
+        }
+        @keyframes leafFloat {
+            0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(200px, -100px) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Fotosintesis</h1>
+        <p>Kelas 8 SMP</p>
+        <div class="leaf" style="top:10%; left:5%;"></div>
+        <div class="leaf" style="top:30%; right:5%; animation-delay:2s;"></div>
+        <div class="leaf" style="top:50%; left:10%; animation-delay:4s;"></div>
+        <div class="leaf" style="top:70%; right:10%; animation-delay:6s;"></div>
+    </header>
+
+    <nav>
+        <a href="#home" class="nav-link">Beranda</a>
+        <a href="#materi" class="nav-link">Materi</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="content-box show">
+                <h2>Selamat Datang</h2>
+                <p>Dalam modul ini kamu akan belajar tentang proses fotosintesis,Bagaimana tumbuhan membuat makanan sendiri menggunakan cahaya matahari, air, dan karbon dioksida. Mari kita jelajahi bersama!</p>
+                <img src="https://source.unsplash.com/featured/800x400/?leaf,sun" alt="Ilustrasi fotosintesis">
+            </div>
+        </section>
+
+        <section id="materi">
+            <div class="content-box">
+                <h2>Apa Itu Fotosintesis?</h2>
+                <p>Fotosintesis adalah proses yang dilakukan oleh tumbuhan, alga, dan beberapa bakteri untuk mengubah energi cahaya menjadi energi kimiawi dalam bentuk glukosa (C6H12O6). Secara umum, proses ini dapat dirumuskan sebagai:</p>
+                <p><strong>6 CO₂ + 6 H₂O + cahaya → C₆H₁₂O₆ + 6 O₂</strong></p>
+                <p>Proses ini terjadi dalam kloroplas, khususnya pada membran tilakoid yang mengandung pigmen klorofil.</p>
+                <h3>Tahapan Fotosintesis</h3>
+                <ol>
+                    <li><strong>Reaksi Cahaya (Light-dependent reactions)</strong>: Terjadi pada tilakoid, energi cahaya diserap oleh klorofil dan diubah menjadi ATP dan NADPH. Air terurai (fotolisis) menghasilkan O₂ sebagai produk samping.</li>
+                    <li><strong>Reaksi Kalvin (Light-independent reactions / Calvin Cycle)</strong>: Terjadi pada stroma, ATP dan NADPH digunakan untuk mengubah CO₂ menjadi glukosa melalui serangkaian reaksi enzimatik.</li>
+                </ol>
+                <h3>Faktor yang Mempengaruhi Fotosintesis</h3>
+                <ul>
+                    <li>Intensitas cahaya</li>
+                    <li>Konsentrasi CO₂</li>
+                    <li>Suhu</li>
+                    <li>Ketersediaan air</li>
+                </ul>
+                <img src="https://source.unsplash.com/featured/800x400/?chloroplast" alt="Struktur kloroplas">
+            </div>
+        </section>
+
+        <section id="quiz">
+            <div class="content-box">
+                <h2>Quiz Fotosintesis</h2>
+                <form id="quizForm">
+                    <div class="quiz-question">
+                        <p>1. Senyawa yang menjadi sumber karbon dalam fotosintesis adalah?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Oksigen (O₂)</label>
+                            <label><input type="radio" name="q1" value="b"> Karbon Dioksida (CO₂)</label>
+                            <label><input type="radio" name="q1" value="c"> Glukosa (C₆H₁₂O₆)</label>
+                            <label><input type="radio" name="q1" value="d"> Air (H₂O)</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>2. Produk samping dari reaksi cahaya dalam fotosintesis adalah?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="a"> Glukosa</label>
+                            <label><input type="radio" name="q2" value="b"> Oksigen</label>
+                            <label><input type="radio" name="q2" value="c"> Karbon Dioksida</label>
+                            <label><input type="radio" name="q2" value="d"> Air</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>3. Pigmen utama yang menyerap cahaya dalam fotosintesis adalah?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q3" value="a"> Klorofil a</label>
+                            <label><input type="radio" name="q3" value="b"> Klorofil b</label>
+                            <label><input type="radio" name="q3" value="c"> Karotenoid</label>
+                            <label><input type="radio" name="q3" value="d"> Fikobilin</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>4. Reaksi Kalvin terjadi di mana dentro kloroplas?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q4" value="a"> Tilakoid</label>
+                            <label><input type="radio" name="q4" value="b"> Stroma</label>
+                            <label><input type="radio" name="q4" value="c"> Lumpur kloroplas</label>
+                            <label><input type="radio" name="q4" value="d"> Luar kloroplas</label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <p>5. Mana di antara faktor berikut yang <em>tidak</em> memperlajuan fotosintesis saat meningkat?</p>
+                        <div class="options">
+                            <label><input type="radio" name="q5" value="a"> Intensitas cahaya</label>
+                            <label><input type="radio" name="q5" value="b"> Konsentrasi CO₂</label>
+                            <label><input type="radio" name="q5" value="c"> Konsentrasi O₂</label>
+                            <label><input type="radio" name="q5" value="d"> Suhu optimal</label>
+                        </div>
+                    </div>
+                </form>
+                <button id="submitQuiz">Periksa Jawaban</button>
+                <div id="result"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Modul Fotosintesis - Kelas 8 SMP
+    </footer>
+
+    <script>
+        // Navigasi aktif berdasarkan scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        function setActiveLink() {
+            let scrollPos = window.scrollY + 80; // offset for header
+            sections.forEach(section => {
+                if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                    const id = section.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+
+        // Quiz logic
+        const quizForm = document.getElementById('quizForm');
+        const submitBtn = document.getElementById('submitQuiz');
+        const resultDiv = document.getElementById('result');
+
+        const correctAnswers = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'a',
+            q4: 'b',
+            q5: 'c'
+        };
+
+        submitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            let score = 0;
+            const formData = new FormData(quizForm);
+            for (let [name, value] of formData) {
+                if (value === correctAnswers[name]) {
+                    score++;
+                }
+            }
+            resultDiv.textContent = `Nilai kamu: ${score} dari 5`;
+            resultDiv.style.display = 'block';
+            if (score === 5) {
+                resultDiv.style.color = '#27ae60';
+                resultDiv.textContent += ' - Excellent!';
+            } else if (score >= 3) {
+                resultDiv.style.color = '#f39c12';
+                resultDiv.textContent += ' - Bagus, tetap belajar!';
+            } else {
+                resultDiv.style.color = '#c0392b';
+                resultDiv.textContent += ' - Coba lagi ya!';
+            }
+        });
+
+        // Simple animation for content boxes on scroll
+        const contentBoxes = document.querySelectorAll('.content-box');
+        function checkVisibility() {
+            const triggerBottom = window.innerHeight * 0.8;
+            contentBoxes.forEach(box => {
+                const boxTop = box.getBoundingClientRect().top;
+                if (boxTop < triggerBottom) {
+                    box.classList.add('show');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+    </script>
+</body>
+</html>

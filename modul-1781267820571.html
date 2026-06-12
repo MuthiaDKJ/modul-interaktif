@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Fotosintesis Kelas 8 SMP</title>
+<style>
+    :root {
+        --primary: #2e7d32;
+        --secondary: #66bb6a;
+        --background: #f1f8e9;
+        --text: #1b5e20;
+        --light: #ffffff;
+        --shadow: rgba(0,0,0,0.1);
+    }
+    * {
+        margin:0; padding:0; box-sizing:border-box;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height:1.6;
+        background: var(--background);
+        color: var(--text);
+    }
+    header {
+        background: var(--primary);
+        color: var(--light);
+        text-align:center;
+        padding:2rem 1rem;
+        animation: fadeInDown 1s ease-out;
+    }
+    header h1 {font-size:2.5rem;}
+    nav {
+        background: var(--secondary);
+        display:flex;
+        justify-content:center;
+        gap:2rem;
+        padding:1rem;
+        position:sticky;
+        top:0;
+        z-index:1000;
+    }
+    nav a {
+        color:var(--light);
+        text-decoration:none;
+        font-weight:600;
+        padding:0.5rem 1rem;
+        border-radius:4px;
+        transition:background 0.3s;
+    }
+    nav a:hover {background:rgba(255,255,255,0.2);}
+    section {
+        padding:2rem;
+        max-width:960px;
+        margin:0 auto;
+    }
+    .content-box {
+        background:var(--light);
+        border-radius:8px;
+        box-shadow:0 2px 6px var(--shadow);
+        padding:1.5rem;
+        margin-top:1.5rem;
+        animation: fadeInUp 0.8s ease-out;
+    }
+    .content-box h2 {color:var(--primary);margin-bottom:1rem;}
+    .image-container {
+        text-align:center;
+        margin:1.5rem 0;
+    }
+    .image-container img {
+        max-width:100%;
+        height:auto;
+        border-radius:8px;
+        box-shadow:0 2px 8px var(--shadow);
+        transition:transform 0.3s;
+    }
+    .image-container img:hover {transform:scale(1.05);}
+    .highlight {
+        background:var(--secondary);
+        color:var(--light);
+        padding:0.2rem 0.5rem;
+        border-radius:4px;
+    }
+    footer {
+        text-align:center;
+        padding:1.5rem;
+        background:var(--primary);
+        color:var(--light);
+        font-size:0.9rem;
+    }
+    .quiz-container {
+        max-width:600px;
+        margin:0 auto;
+    }
+    .question {
+        margin-bottom:1.5rem;
+        padding:1rem;
+        background:#e8f5e9;
+        border-left:4px solid var(--primary);
+        border-radius:0 8px 8px 0;
+    }
+    .options label {
+        display:block;
+        margin:0.5rem 0;
+        cursor:pointer;
+    }
+    input[type="radio"] {
+        margin-right:0.5rem;
+    }
+    #submitQuiz {
+        display:block;
+        width:100%;
+        max-width:200px;
+        margin:1.5rem auto;
+        padding:0.75rem;
+        background:var(--primary);
+        color:var(--light);
+        border:none;
+        border-radius:4px;
+        font-size:1rem;
+        cursor:pointer;
+        transition:background 0.3s;
+    }
+    #submitQuiz:hover {background:#1b5e20;}
+    #result {
+        text-align:center;
+        font-weight:600;
+        margin-top:1.5rem;
+        font-size:1.2rem;
+    }
+    @keyframes fadeInDown {
+        from {opacity:0; transform:translateY(-20px);}
+        to {opacity:1; transform:translateY(0);}
+    }
+    @keyframes fadeInUp {
+        from {opacity:0; transform:translateY(20px);}
+        to {opacity:1; transform:translateY(0);}
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Fotosintesis</h1>
+    <p>Kelas 8 SMP</p>
+</header>
+<nav>
+    <a href="#home">Beranda</a>
+    <a href="#materi">Materi</a>
+    <a href="#proses">Proses Fotosintesis</a>
+    <a href="#manfaat">Manfaat</a>
+    <a href="#quiz">Quiz</a>
+</nav>
+
+<section id="home" class="content-box">
+    <h2>Selamat Datang</h2>
+    <p>Fotosintesis adalah proses yang dilakukan oleh tumbuhan, alga, dan beberapa bakteria untuk mengubah energi cahaya menjadi energi kimia dalam bentuk gula.</p>
+    <div class="image-container">
+        <img src="https://source.unsplash.com/featured/800x400/?plant,leaf" alt="Ilustrasi fotosintesis">
+    </div>
+</section>
+
+<section id="materi" class="content-box">
+    <h2>Materi Pokok</h2>
+    <p><span class="highlight">Fotosintesis</span> terjadi soprattutto dalam daun tumbuhan, khususnya dalam <span class="highlight">kloroplas</span> yang mengandung pigmen klorofil.</p>
+    <ul>
+        <li>Bahan Baku: <span class="highlight">Air (H₂O)</span> dan <span class="highlight">Karbon Dioksida (CO₂)</span></li>
+        <li>Produk: <span class="highlight">Glukosa (C₆H₁₂O₆)</span> dan <span class="highlight">Oksigen (O₂)</span></li>
+        <li>Energi yang diperlukan: Cahaya matahari</li>
+    </ul>
+    <p>Secara umum, persamaan fotosintesis dapat ditulis sebagai:</p>
+    <p style="text-align:center;font-size:1.2rem;margin:1rem 0;"><strong>6 CO₂ + 6 H₂O + Cahaya → C₆H₁₂O₆ + 6 O₂</strong></p>
+</section>
+
+<section id="proses" class="content-box">
+    <h2>Tahapan Proses Fotosintesis</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;">
+        <div style="flex:1 1 200px;background:#e8f5e9;padding:1rem;border-radius:8px;text-align:center;">
+            <h3>Reaksi Bergantung Cahaya</h3>
+            <p>Terjadi dalam membran tilakoid kloroplas. Energi cahaya ditangkap oleh klorofil dan diubah menjadi ATP dan NADPH.</p>
+        </div>
+        <div style="flex:1 1 200px;background:#e8f5e9;padding:1rem;border-radius:8px;text-align:center;">
+            <h3>Reaksi Tidak Bergantung Cahaya (Kalvin)</h3>
+            <p>Terjadi dalam stroma kloroplas. Menggunakan ATP dan NADPH untuk mengubah CO₂ menjadi glukosa.</p>
+        </div>
+    </div>
+</section>
+
+<section id="manfaat" class="content-box">
+    <h2>Manfaat Fotosintesis</h2>
+    <ol>
+        <li>Menghasilkan oksigen yang diperlukan untuk pernapasan hampir semua makhluk hidup.</li>
+        <li>Menghasilkan karbohidrat sebagai sumber energi untuk tumbuhan danheterotrof.</li>
+        <li>Mengurangi kadar karbon dioksida dalam atmosfer, membantu mengurangi efek rumah kaca.</li>
+        <li>Menyediakan bahan baku untuk industri (kayu, serat, obat-obatan, dll.).</li>
+    </ol>
+</section>
+
+<section id="quiz" class="content-box">
+    <h2>Quiz Fotosintesis</h2>
+    <div class="quiz-container">
+        <div id="quizForm"></div>
+        <button id="submitQuiz">Lihat Nilai</button>
+        <div id="result"></div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Fotosintesis Kelas 8 SMP. Hak Cipta Dilindungi.
+</footer>
+
+<script>
+    const questions = [
+        {
+            q: "Manakah bahan baku utama dalam fotosintesis?",
+            options: ["Oksigen dan Glukosa", "Karbon Dioksida dan Air", "Nitrogen dan Fosfor", "Metana dan Amoniak"],
+            answer: 1
+        },
+        {
+            q: "Pigmen utama yang menyerap cahaya dalam fotosintesis adalah?",
+            options: ["Klorofil", "Karoten", "Xantofil", "Antosianin"],
+            answer: 0
+        },
+        {
+            q: "Reaksi bergantung cahaya fotosintesis terjadi di dalam?",
+            options: ["Stroma", "Tilakoid", "Sel powiet", "Mitokondria"],
+            answer: 1
+        },
+        {
+            q: "Produk akhir dari reaksi Kalvin dalam fotosintesis adalah?",
+            options: ["ATP", "NADPH", "Glukosa", "Oksigen"],
+            answer: 2
+        },
+        {
+            q: "Manakah berikut yang merupakan manfaat fotosintesis bagi lingkungan?",
+            options: ["Menghasilkan polutan", "Mengurangi kadar CO₂ atmosfer", "Menambah suhu bumi", "Menghasilkan nitrogen"],
+            answer: 1
+        }
+    ];
+
+    function loadQuiz() {
+        const formDiv = document.getElementById('quizForm');
+        formDiv.innerHTML = '';
+        questions.forEach((q, idx) => {
+            const qDiv = document.createElement('div');
+            qDiv.className = 'question';
+            qDiv.innerHTML = `<p><strong>${idx+1}. ${q.q}</strong></p>`;
+            q.options.forEach((opt, optIdx) => {
+                qDiv.innerHTML += `
+                    <label>
+                        <input type="radio" name="q${idx}" value="${optIdx}">
+                        ${opt}
+                    </label>
+                `;
+            });
+            formDiv.appendChild(qDiv);
+        });
+    }
+
+    document.getElementById('submitQuiz').addEventListener('click', () => {
+        let score = 0;
+        questions.forEach((q, idx) => {
+            const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+            if (selected && parseInt(selected.value) === q.answer) {
+                score++;
+            }
+        });
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `Nilai Anda: ${score} dari ${questions.length}`;
+        if (score === questions.length) {
+            resultDiv.style.color = "#2e7d32";
+        } else if (score >= 3) {
+            resultDiv.style.color = "#f57c00";
+        } else {
+            resultDiv.style.color = "#c62828";
+        }
+    });
+
+    window.onload = loadQuiz;
+</script>
+</body>
+</html>

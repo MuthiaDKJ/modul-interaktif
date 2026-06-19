@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Modul Pembelajaran Pemrograman Visual</title>
+<style>
+    :root{
+        --primary:#4a90e2;
+        --secondary:#50e3c2;
+        --bg:#f5f7fa;
+        --dark:#2c3e50;
+        --light:#fff;
+        --shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--dark);line-height:1.6;}
+    a{text-decoration:none;color:inherit;}
+    nav{
+        position:sticky;top:0;background:var(--primary);color:var(--light);
+        padding:1rem;display:flex;justify-content:space-around;box-shadow:var(--shadow);
+        z-index:1000;
+    }
+    nav a{margin:0 1rem;font-weight:600;transition:color .3s;}
+    nav a:hover{color:var(--secondary);}
+    section{padding:4rem 2rem;max-width:960px;margin:auto;opacity:0;transform:translateY(20px);animation:fadeInUp .6s forwards;}
+    section:nth-child(odd){animation-delay:0s;}
+    section:nth-child(even){animation-delay:.2s;}
+    @keyframes fadeInUp{
+        to{opacity:1;transform:translateY(0);}
+    }
+    h1,h2{h1{font-size:2.2rem;margin-bottom:1rem;}h2{font-size:1.8rem;margin-top:2rem;margin-bottom:.8rem;color:var(--primary);}}
+    .content{background:var(--light);padding:2rem;border-radius:8px;box-shadow:var(--shadow);}
+    .btn{
+        display:inline-block;background:var(--secondary);color:var(--light);
+        padding:.8rem 1.5rem;border:none;border-radius:4px;cursor:pointer;
+        font-weight:600;transition:background .3s,transform .2s;
+    }
+    .btn:hover{background:var(--primary);transform:translateY(-2px);}
+    .quiz-item{margin:1.5rem 0;padding:1rem;border-left:4px solid var(--primary);background:#f0f8ff;border-radius:0 4px 4px 0;}
+    .options label{display:block;margin:.5rem 0;cursor:pointer;}
+    .options input{margin-right:.5rem;}
+    #result{margin-top:2rem;font-weight:bold;text-align:center;}
+    footer{text-align:center;padding:2rem;font-size:.9rem;color:#777;}
+    @media(max-width:600px){
+        nav{flex-direction:column;align-items:flex-start;}
+        nav a{margin:.5rem 0;}
+        section{padding:2rem 1rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+    <a href="#home">Beranda</a>
+    <a href="#materi">Materi</a>
+    <a href="#quiz">Quiz</a>
+</nav>
+
+<section id="home">
+    <div class="content">
+        <h1>Selamat Datang di Modul Pemrograman Visual</h1>
+        <p>Modul ini akan memperkenalkan konsep dasar pemrograman visual menggunakan blok-blok seperti Scratch atau bahasa visual sederhana. Anda akan belajar cara mengkonstruksi logika program dengan cara drag-and-drop, memahami urutan eksekusi, kondisi, dan perulangan.</p>
+        <p>Ikuti langkah-langkah di bagian Materi, lalu uji pemahaman Anda dengan quiz di akhir.</p>
+        <a href="#materi" class="btn">Mulai Materi</a>
+    </div>
+</section>
+
+<section id="materi">
+    <div class="content">
+        <h2>Materi Pembelajaran</h2>
+
+        <h3>1. Apa Itu Pemrograman Visual?</h3>
+        <p>Pemrograman visual adalah paradigma pemrograman di mana pengguna membangun program dengan menggabungkan elemen grafis (blok, ikon, atau simbol) alih-alih menulis kode teks. Ini meminimalkan kesalahan sintaks dan memfokuskan pada logika algoritma.</p>
+
+        <h3>2. Komponen Dasar</h3>
+        <ul>
+            <li><strong>Blok Pengontrol:</strong> Mengatur alur program (misalnya: ketika diklik, ulang selamanya).</li>
+            <li><strong>Blok Tindakan:</strong> Melakukan sesuatu (misalnya: gerak 10 langkah, ubah warna).</li>
+            <li><strong>Blok Sensor:</strong> Mendapatkan input (misalnya: posisi mouse, tekanan tombol).</li>
+            <li><strong>Blok Operator:</strong> Melakukan operasi matematika atau logika (misalnya: tambah, lebih besar dari).</li>
+            <li><strong>Blok Variabel:</strong> Menyimpan nilai yang dapat berubah.</li>
+        </ul>
+
+        <h3>3. Contoh Sederhana: Gerakkan Sprite</h3>
+        <ol>
+            <li>Tarikh blok " ketika drapeau diklik ". </li>
+            <li>Tambahkan blok " ulang selamanya ". </li>
+            <li>Di dalamnya, letakkan blok " gerak 10 langkah ". </li>
+            <li>Akhiri dengan blok " jika di tepi, pantulkan ". </li>
+        </ol>
+        <p>Contoh ini membuat sprite bergerak terus-menerus dan memantul ketika mencapai tepi layar.</p>
+
+        <h3>4. Kondisi dan Perulangan</h3>
+        <p>Gunakan blok " jika ... maka " untuk membuat keputusan. Gunakan blok " ulang X kali " atau " ulang selamanya " untuk perulangan.</p>
+
+        <h3>5. Variabel dan Score</h3>
+        <p>Buat variabel bernama "score". Tambahkan 1 setiap kali sprite menyentuh objek tertentu, lalu tampilkan nilai variabel tersebut.</p>
+
+        <p>Setelah memahami konsep di atas, coba buat mini game sederhana seperti "Catch the Falling Object" atau "Maze Runner" menggunakan blok yang telah dipelajari.</p>
+    </div>
+</section>
+
+<section id="quiz">
+    <div class="content">
+        <h2>Quiz Pemrograman Visual</h2>
+        <form id="quizForm">
+            <div class="quiz-item">
+                <p>1. Apa fungsi utama blok " ketika drapeau diklik "?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a"> Untuk memulai eksekusi program saat gambar bendera diklik.</label>
+                    <label><input type="radio" name="q1" value="b"> Untuk menghentikan semua skrip yang berjalan.</label>
+                    <label><input type="radio" name="q1" value="c"> Untuk mengubah warna latar belakang.</label>
+                    <label><input type="radio" name="q1" value="d"> Untuk menyimpan variabel.</label>
+                </div>
+            </div>
+
+            <div class="quiz-item">
+                <p>2. Blok mana yang digunakan untuk mengulangi suatu tindakan sejauh 5 kali?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a"> ulang selamanya</label>
+                    <label><input type="radio" name="q2" value="b"> ulang 5 kali</label>
+                    <label><input type="radio" name="q2" value="c"> jika...</label>
+                    <label><input type="radio" name="q2" value="d"> tukar kostum</label>
+                </div>
+            </div>
+
+            <div class="quiz-item">
+                <p>3. Dalam pemrograman visual, variabel digunakan untuk:</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a"> Mengubah posisi sprite secara acak.</label>
+                    <label><input type="radio" name="q3" value="b"> Menyimpan nilai yang dapat berubah selama eksekusi program.</label>
+                    <label><input type="radio" name="q3" value="c"> Mengatur kecepatan gerakan sprite.</label>
+                    <label><input type="radio" name="q3" value="d"> Menampilkan teks layar.</label>
+                </div>
+            </div>
+
+            <div class="quiz-item">
+                <p>4. Blok " jika di tepi, pantulkan " berguna untuk:</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a"> Menghentikan program ketika sprite mencapai tepi.</label>
+                    <label><input type="radio" name="q4" value="b"> Membuat sprite bergerak ke arah acak.</label>
+                    <label><input type="radio" name="q4" value="c"> Memastikan sprite tidak keluar layar dengan mengubah arah geraknya.</label>
+                    <label><input type="radio" name="q4" value="d"> Mengubah ukuran sprite.</label>
+                </div>
+            </div>
+
+            <div class="quiz-item">
+                <p>5. Untuk menambah nilai variabel "score" setiap kali sprite menyentuh objek, kita gunakan blok:</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a"> ubah skor dengan 1</label>
+                    <label><input type="radio" name="q5" value="b"> set skor ke 0</label>
+                    <label><input type="radio" name="q5" value="c"> tampilkan skor</label>
+                    <label><input type="radio" name="q5" value="d"> ubah skor dengan -1</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn" id="submitBtn">Submit Jawaban</button>
+            <div id="result"></div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 Modul Pembelajaran Pemrograman Visual. Hak Cipta Dilindungi.
+</footer>
+
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            window.scrollTo({
+                top: targetSection.offsetTop - 60,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    const correctAnswers = {
+        q1: 'a',
+        q2: 'b',
+        q3: 'b',
+        q4: 'c',
+        q5: 'a'
+    };
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+        let score = 0;
+        const form = document.getElementById('quizForm');
+        const inputs = form.elements;
+        for (const key in correctAnswers) {
+            const selected = [...inputs].find(el => el.name === key && el.checked);
+            if (selected && selected.value === correctAnswers[key]) {
+                score++;
+            }
+        }
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `Anda mendapatkan ${score} dari ${Object.keys(correctAnswers).length} jawaban benar.`;
+        if (score === Object.keys(correctAnswers).length) {
+            resultDiv.style.color = 'var(--secondary)';
+            resultDiv.textContent += ' Excellent!';
+        } else if (score >= 3) {
+            resultDiv.style.color = 'var(--primary)';
+            resultDiv.textContent += ' Good job!';
+        } else {
+            resultDiv.style.color = '#e74c3c';
+            resultDiv.textContent += ' Coba lagi ya.';
+        }
+    });
+</script>
+</body>
+</html>

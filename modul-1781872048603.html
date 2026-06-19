@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modul Pembelajaran Tata Surya</title>
+<style>
+:root {
+    --primary: #0d47a1;
+    --secondary: #1565c0;
+    --accent: #42a5f5;
+    --light: #e3f2fd;
+    --dark: #01579b;
+    --bg: #f5f5f5;
+    --text: #212121;
+    --success: #4caf50;
+    --danger: #f44336;
+    --warning: #ff9800;
+}
+
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {scroll-behavior: smooth;}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+/* Header sticky */
+header {
+    position: sticky;
+    top: 0;
+    background: var(--primary);
+    color: #fff;
+    padding: 1rem 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-list a:hover {
+    color: var(--accent);
+}
+
+/* Progress bar */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent);
+    width: 0%;
+    z-index: 999;
+}
+
+/* Section umum */
+section {
+    padding: 3rem 1rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: var(--primary);
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 0.5rem auto 0;
+}
+
+/* Card layout */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.card-header {
+    background: var(--light);
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+.card-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+.card-body {
+    padding: 1.5rem;
+}
+.card-body p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+.card-body ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+.card-body li {
+    margin-bottom: 0.5rem;
+}
+.card-footer {
+    padding: 1rem;
+    text-align: center;
+    background: var(--light);
+    border-top: 1px solid #ddd;
+}
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+.btn:hover {
+    background: var(--secondary);
+}
+
+/* Animasi orbit */
+#orbit-animation {
+    width: 100%;
+    height: 300px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+}
+.orbit {
+    position: absolute;
+    border: 1px dashed var(--accent);
+    border-radius: 50%;
+}
+.planet {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(66,165,245,0.7);
+}
+.sun {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ffeb3b;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255,235,59,0.8);
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/* Quiz styling */
+.quiz-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.question {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+.options {
+    margin-top: 1rem;
+}
+.options label {
+    display: block;
+    background: #fff;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.options label:hover {
+    background: #f0f0f0;
+}
+.options input[type="radio"] {
+    margin-right: 0.8rem;
+}
+#timer {
+    font-weight: bold;
+    color: var(--danger);
+    margin-bottom: 1rem;
+}
+#result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+#result.A {background: var(--success); color:#fff;}
+#result.B {background: var(--accent); color:#fff;}
+#result.C {background: var(--warning); color:#fff;}
+#result.D {background: var(--danger); color:#fff;}
+
+/* Glosarium */
+.glossary {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.glossary-item {
+    background: #fff;
+    border-left: 4px solid var(--primary);
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.glossary-term {
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+}
+.glossary-def {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Tombol kembali ke atas */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: opacity 0.3s;
+}
+#back-to-top:hover {
+    background: var(--secondary);
+}
+
+/* Responsif */
+@media (max-width:768px) {
+    .nav-list {flex-direction: column; gap:0.8rem;}
+    .section-title {font-size:1.8rem;}
+}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<header>
+    <div class="header-container">
+        <div class="logo">Tata Surya</div>
+        <ul class="nav-list">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#materi">Materi</a></li>
+            <li><a href="#sub-materi">Sub-Materi</a></li>
+            <li><a href="#animasi">Animasi</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#glosarium">Glosarium</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <!-- Beranda -->
+    <section id="beranda">
+        <div class="section-title">Selamat Datang</div>
+        <div class="card">
+            <div class="card-header"><h2>Modul Pembelajaran Tata Surya</h2></div>
+            <div class="card-body">
+                <p>Modul ini dirancang untuk membantu siswa memahami struktur, komponen, dan dinamika Tata Surya secara interaktif. Melalui kombinasi penjelasan teoritis, visualisasi animasi, video pendidikan, dan kuis evaluasi, pesan pembelajaran disampaikan secara menyeluruh dan menarik.</p>
+                <p>Setiap bagian dilengkapi dengan contoh dari kehidupan sehari-hari serta aplikasi ilmu pengetahuan modern, seperti penggunaan data satelit untuk prediksi cuaca atau navigasi antarplanet yang mengandalkan prinsip mekanika orbit.</p>
+                <p>Tujuan akhir modul ini adalah agar peserta dapat menjelaskan sifat masing-masing planeta, memahami fenomena gerak langit, dan mengaplikasikan konsep dasar astronomi dalam konteks sains dan teknologi.</p>
+                <ul>
+                    <li>Mengenal komponen utama Tata Surya (Matahari, planet, asteroid, komet, dsb).</li>
+                    <li>Memahami gerak revolusi dan rotasi setiap corpo langit.</li>
+                    <li>Mengidentifikasi fenomena seperti eclipse, gelombang gravitasi, dan magnetosfer.</li>
+                    <li>Menganalisis peran Tata Surya dalam kehidupan bumi (iklim, survei sumber daya).</li>
+                </ul>
+                <a href="#materi" class="btn">Mulai Materi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materi -->
+    <section id="materi">
+        <div class="section-title">Materi Pokok</div>
+        <!-- Sub-bab 1 -->
+        <div class="card">
+            <div class="card-header"><h2>Sub-Bab 1: Matahari sebagai Sumber Energi</h2></div>
+            <div class="card-body">
+                <p>Matahari adalah bintang kelas G2V yang terletak pada pusat Tata Surya. Dengan massa sekitar 1,989 × 10³⁰ kg, ia mengekstensikan gravitasi yang menjaga semua planet dalam orbitnya. Energi yang dihasilkan melalui reaksi fusi nuklida inti menghasilkan radiasi elektromagnetik yang mencapai bumi sebagai cahaya dan panas.</p>
+                <p>Inti Matahari terdiri terutama dari hidrogen (≈74%) dan helium (≈24%). Dalam proses fusi, empat inti hidrogen bergabung menjadi satu inti helium, melepaskan energi sebesar 0,7% dari massa masing-masing sesuai dengan persamaan E=mc². Energi ini kemudian dipindahkan ke lapisan luar melalui radiasi dan konveksi sebelum finally terluluh sebagai sinar matahari yang kita saksikan.</p>
+                <p>Pada bumi, energi matahari menjadi dasar fotosintesis, mengatur iklim, dan menjadi sumber energi terbarukan melalui panel surya. Tanpa radiasi matahari, kehidupan seperti yang kita kenal tidak akan ada, dan suka rata-rata bumi akan jauh di bawah titik beku.</p>
+                <ul>
+                    <li>Matahari menyumbang sekitar 1361 W/m² energi pada atmosfer bumi (konstanta surya).</li>
+                    <li>Siklus aktivitas matahari berlangsung sekitar 11 tahun, dengan maksimum dan minimum yang memengaruhi radiasi kosmik.</li>
+                    <li>Explosi koronal massa ejection (CME) dapat mengganggu satelit dan jaringan listrik bumi.</li>
+                </ul>
+            </div>
+            <div class="card-footer"><img src="https://upload.wikimedia.org/wikipedia/commons/0/02/ESO_-_The_Sun.jpg" alt="Matahari" style="width:100%;border-radius:8px;"></div>
+        </div>
+        <!-- Sub-bab 2 -->
+        <div class="card">
+            <div class="card-header"><h2>Sub-Bab 2: Planet Batu (Terrestrial)</h2></div>
+            <div class="card-body">
+                <p>Planet batu, juga disebut planet terrestres, terdiri dari Merkurius, Venus, Bumi, dan Mars. Mereka memiliki padatan relatif tinggi, permukaan padat yang terbentuk dari bahan batuan dan logam, dan umumnya tidak memiliki cincin yang jelas atau atmosfer tebal seperti raksasa gas.</p>
+                <p>Merkurius adalah planet terdekat dari Matahari dengan sisi siang yang sangat panas ( sampai 430°C) dan sisi malam yang sangat dingin ( sampai -180°C) karena kurangnya atmosfer yang signifikan. Venus, sebaliknya, memiliki atmosfer yang sangat tebal berdominasi oleh karbon dioksida yang menciptakan efek kasbah ekstrim, membuat suhu permukaan sekitar 465°C—lebih panas daripada Merkurius meski lebih jauh dari Matahari.</p>
+                <p>Bumi adalah satu-satunya planet yang dikenal mendukung kehidupan, berkat cairan air luas, atmosfer yang mengandung oksigen, dan medan magnet yang melindungi dari radiasi kosmik berbahaya. Mars, dengan air beku di porosnya dan bukti aliran air lamanya, menjadi target utama eksplorasi manusia untuk kolonisasi masa depan.</p>
+                <ul>
+                    <li>Merkurius melengkapi satu orbit sekitar 88 hari Bumi.</li>
+                    <li>Venus memiliki rotasi mundur (retrograde) dengan hari lebih panjang dari tahunnya.</li>
+                    <li>Mars mempunyai gunung tertinggi di Tafelski (Olympus Mons) sekitar 22 km.</li>
+                </ul>
+            </div>
+            <div class="card-footer"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Planets2013.png" alt="Planet Batu" style="width:100%;border-radius:8px;"></div>
+        </div>
+        <!-- Sub-bab 3 -->
+        <div class="card">
+            <div class="card-header"><h2>Sub-Bab 3: Planet Raksasa Gas</h2></div>
+            <div class="card-body">
+                <p>Planet raksasa gas meliputi Jupiter, Saturnus, Uranus, dan Neptunus. Mereka didominasi oleh hidrogen dan helium, memiliki massa sangat besar, dan tidak memiliki permukaan padat yang jelas. Alih-alih, atmosfer mereka bertambah tekt lebih dalam menuju inti yang mungkin terdiri dari logam padat dan es.</p>
+                <p>Jupiter adalah planet terbesar dalam Tata Surya, dengan diameter sekitar 139.820 km dan massa lebih dari 318 kali massa Bumi. Ciri khasnya adalah Grande Red Spot, badai antikesamaan yang berlangsung selama kurangnya tiga ratus tahun. Saturnus dikenal karena cincinnya yang spektakler, terbuat dari es, batu, dan debu yang berkisar dari mikrometer hingga beberapa meter.</p>
+                <p>Uranus dan Neptunus dinamakan raksasa es karena proporsi lebih tinggi dari air, ammonia, dan methane es dibandingkan hidrogen dan helium. Uranus memiliki sumbu rotasi yang miring hampir 98°, menyebabkan musim-musim ekstrem yang masing-masing berlangsung sekitar 42 tahun. Neptunus memiliki angin tercepat di Tata Surya, mencapai kecepatan lebih dari 2.000 km/jam.</p>
+                <ul>
+                    <li>Jupiter memiliki lebih dari 79 bulan terkonfirmasi.</li>
+                    <li>Cincin Saturnus terdiri principalmente dari partikel es dengan komposisi 90-95% es air.</li>
+                    <li>Uranus memancarkan lebih sedikit kalor internal daripada yang diterima dari Matahari.</li>
+                    <li>Neptunus ditemukan melalui perhitungan matematika sebelum diamati secara langsung.</li>
+                </ul>
+            </div>
+            <div class="card-footer"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/SolarSystem.jpg" alt="Planet Raksasa Gas" style="width:100%;border-radius:8px;"></div>
+        </div>
+        <!-- Sub-bab 4 -->
+        <div class="card">
+            <div class="card-header"><h2>Sub-Bab 4: Benda Kecil di Tata Surya</h2></div>
+            <div class="card-body">
+                <p>Selain planet, Tata Surya juga berisi sejumlah besar benda kecil seperti asteroid, komet, meteoroid, dan debu antarplanet. Objek-objek ini memberikan informasi penting mengenai kondisi awal pembentukan Tata Surya sekitar 4,6 miliar tahun lalu.</p>
+                <p>Asteroid predominantly beredar dalam sabuk asteroid yang terletak antara orbit Mars dan Jupiter. Meskipun jumlahnya mencapai jutaan, massa total mereka hanya sekitar 4% bulan Bumi. Beberapa asteroid memiliki komposisi logam tinggi (seperti jenis M) dan dianggap sebagai sumber potensi logam di masa depan.</p>
+                <p>Komet berasal dari wilayah jauh seperti Kuiper Belt dan Oort Cloud. Mereka terdiri dari es padat (air, karbon dioksida, metana, ammonia) yang ketika mendekati Matahari menguap membentuk koma dan ekor yang mencolok. Ekor debu dan ekor ion selalu berada dengan menyinggung arah yang berlawanan dengan matahari karena tekanan radiasi dan angin surya.</p>
+                <p>Meteoroid adalah fragmen batu atau loga yang berinteraksi dengan atmosfer bumi, menghasilkan fenomen meteor (kilat) dan bila mencapai permukaan disebut meteorit. Studi meteorit memberikan komposisi yang hampir sama dengan batuan Mantle bumi, yang memberi petunjuk tentang proses diferenciasi planet.</p>
+                <ul>
+                    <li>Sabuk asteroid berisi objek yang lebih besar dari 1 km: >1 juta, tetapi hanya ~200 lebih besar dari 100 km.</li>
+                    <li>Komet Hale-Bopp (1997) memiliki ekor yang dapat terlihat dengan mata telanjang selama 18 bulan.</li>
+                    <li>Meteorit Chicxulub diperkirakan menyebabkan kepunahan massa Kreta-Paleogen yang menghancurkan dinosaur non-avian.</li>
+                </ul>
+            </div>
+            <div class="card-footer"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Asteroid_belt.png" alt="Asteroid Belt" style="width:100%;border-radius:8px;"></div>
+        </div>
+        <!-- Sub-bab 5 -->
+        <div class="card">
+            <div class="card-header"><h2>Sub-Bab 5: Fenomena dan Dinamis Tata Surya</h2></div>
+            <div class="card-body">
+                <p>Tata Surya adalah sistem dinamis yang terus berubah karena interaksi gravitasi, radiasi, dan fenomena magnetik. Beberapa peristiwa yang menarik termasuk gerakan precisi bumi, resonansi orbital, gelombang gravitasi, dan pertukaran momentum antara planet dan satelitnya.</p>
+                <p>Precisi adalah perubahan orientasi sumbu rotasi bumi yang menyebabkan perubahan posisi kutub langit serta pergantian titik equinox. Siklus precisi memakan waktu sekitar 25.800 tahun dan berperan dalam perubahan iklim jangka panjang dikenal sebagai cyklus Milankovitch.</p>
+                <p>Resonansi orbital terjadi ketika perioda orbit dua buah objek memiliki rasio bilangan bulat sederhana (misalnya 2:1, 3:2). Contoh klasik adalah resonansi antara Neptunus dan Pluton, yang menjaga orbit Pluto tetap stabil walaupun sangat elongasi. Fenomen ini juga menjelaskan mengapa ada kosong dalam sabuk asteroid (Kirkwood gaps).</p>
+                <p>Gelombang gravitasi, pertama kali terdeteksi dari gabungan lubang hitam, juga dipancarkan oleh sistem planet-massa besar seperti Jupiter bersama satelitnya, aunque amplitudanya sangat kecil sehingga masih sulit dideteksi dengan teknologi saat ini. Studi gelombang ini membuka jendela baru untuk memahami massa dan distribusi materi dalam Tata Surya.</p>
+                <ul>
+                    <li>Precisi bumi menyebabkan perubahan posisi bintang kutub dari Polaris ke Gamma Cephei dalam beberapa ribu tahun.</li>
+                    <li>Resonansi 3:2 antara Neptunus dan Pluton menjadikannya tetap dalam orbit yang tidak bertabrakan nonostante persilangan jalur orbital nominal.</li>
+                    <li>Gelombang gravitasi dari sistem Jupiter-IO diperkirakan amplitudanya ~10^-21 meter, jauh di bawah ambang detector LIGO saat ini.</li>
+                </ul>
+            </div>
+            <div class="card-footer"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Orbital_resonance_illustration.png" alt="Resonansi Orbital" style="width:100%;border-radius:8px;"></div>
+        </div>
+    </section>
+
+    <!-- Sub-Materi (detail) -->
+    <section id="sub-materi">
+        <div class="section-title">Sub-Materi Mendalam</div>
+        <!-- Tabel -->
+        <div class="card">
+            <div class="card-header"><h2>Data Planet</h2></div>
+            <div class="card-body">
+                <table style="width:100%;border-collapse:collapse;margin-top:1rem;">
+                    <thead>
+                        <tr>
+                            <th style="border:1px solid #ddd;padding:8px;background:var(--light);">Planet</th>
+                            <th style="border:1px solid #ddd;padding:8px;background:var(--light);">Jarak Rata-rata (AU)</th>
+                            <th style="border:1px solid #ddd;padding:8px;background:var(--light);">Perioda Orbit (hari)</th>
+                            <th style="border:1px solid #ddd;padding:8px;background:var(--light);">Diameter (km)</th>
+                            <th style="border:1px solid #ddd;padding:8px;background:var(--light);">Massa (×10^24 kg)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Merkurius</td><td style="border:1px solid #ddd;padding:8px;">0.39</td><td style="border:1px solid #ddd;padding:8px;">88</td><td style="border:1px solid #ddd;padding:8px;">4.880</td><td style="border:1px solid #ddd;padding:8px;">0,330</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Venus</td><td style="border:1px solid #ddd;padding:8px;">0.72</td><td style="border:1px solid #ddd;padding:8px;">225</td><td style="border:1px solid #ddd;padding:8px;">12.104</td><td style="border:1px solid #ddd;padding:8px;">4,87</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Bumi</td><td style="border:1px solid #ddd;padding:8px;">1.00</td><td style="border:1px solid #ddd;padding:8px;">365,25</td><td style="border:1px solid #ddd;padding:8px;">12.742</td><td style="border:1px solid #ddd;padding:8px;">5,97</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Mars</td><td style="border:1px solid #ddd;padding:8px;">1.52</td><td style="border:1px solid #ddd;padding:8px;">687</td><td style="border:1px solid #ddd;padding:8px;">6.779</td><td style="border:1px solid #ddd;padding:8px;">0,642</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Jupiter</td><td style="border:1px solid #ddd;padding:8px;">5.20</td><td style="border:1px solid #ddd;padding:8px;">4.333</td><td style="border:1px solid #ddd;padding:8px;">139.820</td><td style="border:1px solid #ddd;padding:8px;">1.898</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Saturnus</td><td style="border:1px solid #ddd;padding:8px;">9.58</td><td style="border:1px solid #ddd;padding:8px;">10.759</td><td style="border:1px solid #ddd;padding:8px;">116.460</td><td style="border:1px solid #ddd;padding:8px;">568</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Uranus</td><td style="border:1px solid #ddd;padding:8px;">19.20</td><td style="border:1px solid #ddd;padding:8px;">30.687</td><td style="border:1px solid #ddd;padding:8px;">50.724</td><td style="border:1px solid #ddd;padding:8px;">86,8</td></tr>
+                        <tr><td style="border:1px solid #ddd;padding:8px;">Neptunus</td><td style="border:1px solid #ddd;padding:8px;">30.05</td><td style="border:1px solid #ddd;padding:8px;">60.190</td><td style="border:1px solid #ddd;padding:8px;">49.244</td><td style="border:1px solid #ddd;padding:8px;">102</td></tr>
+                    </tbody>
+                </table>
+                <p style="margin-top:1rem;text-align:center;color:#555;">* 1 AU = jarak rata-rata Bumi-Matahari ≈ 149,6 juta km.</p>
+            </div>
+        </div>
+        <!-- Animasi opisif -->
+        <div class="card">
+            <div class="card-header"><h2>Ilustrasi Gerak Planet</h2></div>
+            <div class="card-body">
+                <p>Berikut ini merupakan rangkaian ilustrasi sederhana yang menunjukkan perbedaan kecepatan orbital planet dan bentuk elips orbitnya sesuai hukum Kepler.</p>
+                <p>Planet yang lebih dekat ke Matahari memiliki kecepatan orbital yang lebih besar karena tarikan gravitasi yang lebih kuat. Sebaliknya, planet jauh bergerak lebih lambat tetapi menjauh lebih jauh dalam satu orbit karena konservasi momentum sudut.</p>
+                <p>Eksentrisitas orbit menunjukkan seberapa jauh bentuk orbit menyimpang dari lingkaran sempurna. Merkurius memiliki eksentrisitas tertinggi (~0,205) sehingga perihelion dan aphelion sangat berbeda. Sebaliknya, Venus dan Neptunus hampir memiliki orbit lingkaran (eksentrisitas <0,01).</p>
+            </div>
+            <div class="card-footer"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Kepler%27s_laws.svg" alt="Hukum Kepler" style="width:100%;border-radius:8px;"></div>
+        </div>
+    </section>
+
+    <!-- Animasi -->
+    <section id="animasi">
+        <div class="section-title">Animasi Interaktif</div>
+        <div class="card">
+            <div class="card-header"><h2>Animasi Orbit Planet (CSS)</h2></div>
+            <div class="card-body">
+                <div id="orbit-animation">
+                    <div class="sun"></div>
+                    <!-- Orbit Merkurius -->
+                    <div class="orbit" style="width:120px;height:120px;left:50%;top:50%;margin:-60px 0 0 -60px;animation: orbit1 4s linear infinite;"></div>
+                    <div class="planet" style="background:#9e9e9e;left:50%;top:50%;margin:-10px 0 0 -10px;animation: orbit1 4s linear infinite;"></div>
+                    <!-- Orbit Venus -->
+                    <div class="orbit" style="width:180px;height:180px;left:50%;top:50%;margin:-90px 0 0 -90px;animation: orbit2 6s linear infinite;"></div>
+                    <div class="planet" style="background:#ffc107;left:50%;top:50%;margin:-10px 0 0 -10px;animation: orbit2 6s linear infinite;"></div>
+                    <!-- Orbit Bumi -->
+                    <div class="orbit" style="width:240px;height:240px;left:50%;top:50%;margin:-120px 0 0 -120px;animation: orbit3 8s linear infinite;"></div>
+                    <div class="planet" style="background:#1976d2;left:50%;top:50%;margin:-10px 0 0 -10px;animation: orbit3 8s linear infinite;"></div>
+                    <!-- Orbit Mars -->
+                    <div class="orbit" style="width:300px;height:300px;left:50%;top:50%;margin:-150px 0 0 -150px;animation: orbit4 10s linear infinite;"></div>
+                    <div class="planet" style="background:#8bc34a;left:50%;top:50%;margin:-10px 0 0 -10px;animation: orbit4 10s linear infinite;"></div>
+                    <!-- Orbit Jupiter -->
+                    <div class="orbit" style="width:360px;height:360px;left:50%;top:50%;margin:-180px 0 0 -180px;animation: orbit5 12s linear infinite;"></div>
+                    <div class="planet" style="background:#ff9800;width:24px;height:24px;margin:-12px 0 0 -12px;left:50%;top:50%;animation: orbit5 12s linear infinite;"></div>
+                    <!-- Orbit Saturnus -->
+                    <div class="orbit" style="width:420px;height:420px;left:50%;top:50%;margin:-210px 0 0 -210px;animation: orbit6 15s linear infinite;"></div>
+                    <div class="planet" style="background:#ffeb3b;width:22px;height:22px;margin:-11px 0 0 -11px;left:50%;top:50%;animation: orbit6 15s linear infinite;"></div>
+                    <!-- Orbit Uranus -->
+                    <div class="orbit" style="width:480px;height:480px;left:50%;top:50%;margin:-240px 0 0 -240px;animation: orbit7 18s linear infinite;"></div>
+                    <div class="planet" style="background:#90caf9;width:20px;height:20px;margin:-10px 0 0 -10px;left:50%;top:50%;animation: orbit7 18s linear infinite;"></div>
+                    <!-- Orbit Neptunus -->
+                    <div class="orbit" style="width:540px;height:540px;left:50%;top:50%;margin:-270px 0 0 -270px;animation: orbit8 22s linear infinite;"></div>
+                    <div class="planet" style="background:#64b5f6;width:20px;height:20px;margin:-10px 0 0 -10px;left:50%;top:50%;animation: orbit8 22s linear infinite;"></div>
+                </div>
+            </div>
+            <div class="card-footer"><p style="text-align:center;color:#555;">Catatan: Animasi hanya ilustrasi, tidak skala.</p></div>
+        </div>
+        <div class="card">
+            <div class="card-header"><h2>Animasi Canvas: Simulasi Tabrakan Asteroid</h2></div>
+            <div class="card-body">
+                <canvas id="asteroidCanvas" width="600" height="400" style="border:1px solid #ccc;display:block;margin:auto;background:#0d0d0d;"></canvas>
+            </div>
+            <div class="card-footer"><button id="startSim" class="btn">Mulai Simulasi</button></div>
+        </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz">
+        <div class="section-title">Quiz Interaktif</div>
+        <div class="card">
+            <div class="card-header"><h2>Tes Pemahaman Tata Surya</h2></div>
+            <div class="card-body">
+                <div id="timer">Waktu: <span id="time">15:00</span></div>
+                <div class="quiz-container">
+                    <div id="quiz-content"></div>
+                    <div id="quiz-footer" style="text-align:center;margin-top:1.5rem;">
+                        <button id="submitQuiz" class="btn">Kirim Jawaban</button>
+                    </div>
+                </div>
+                <div id="result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glosarium -->
+    <section id="glosarium">
+        <div class="section-title">Glosarium Istilah</div>
+        <div class="card">
+            <div class="card-header"><h2>Definisi Singkat</h2></div>
+            <div class="card-body">
+                <div class="glossary">
+                    <div class="glossary-item"><div class="glossary-term">Asteroid</div><div class="glossary-def">Benda batu berukuran kecil hingga ratusan kilometer yang beredar terutama di sabuk asteroid antara Mars dan Jupiter.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Aurora</div><div class="glossary-def">Pernampakan cahaya di atmosfer tinggi akibat interaksi partikel bermagnet dari angin surya dengan medan magnet planet.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Elips</div><div class="glossary-def">Bentuk orbit planet sesuai hukum Kepler pertama: titik Fokus satu adalah Matahari.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Gravitasi</div><div class="glossary-def">Gaya tarik antar massa yang menjaga planet tetap berorbit dan menentukan struktur Tata Surya.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Helium</div><div class="glossary-def">Unsur kimia hasil fusi hidrogen di inti Matahari; menjadi komponen kedua atmosfer gas raksasa.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Komet</div><div class="glossary-def">Benda berbentuk es yang ketika mendekati Matahari menguap menghasilkan koma dan ekor yang terlihat dari Bumi.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Magnetosfer</div><div class="glossary-def">Ruang di sekitar planet yang dikendalikan medan magnetnya, melindungi dari partikel bers energi angin surya.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Orbit</div><div class="glossary-def">Jalur gravitasional yang diikuti suatu objek bergerak intornoi benda lebih masif karena keseimbangan antara tarik gravitas dan inersia.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Precisi</div><div class="glossary-def">Perubahan orientasi sumbu rotasi bumi akibat torque gravitasi Matahari dan Bulan pada utenga bumi berbentuk elipsoid.</div></div>
+                    <div class="glossary-item"><div class="glossary-term">Resonansi Orbital</div><div class="glossary-def">Kondisi ketika perioda orbit dua objek memiliki rasio bilangan bulat sederhana, mempengaruhi stabilitas sistem dinamik.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>Modul Pembelajaran Tata Surya &copy; 2025. Dikembangkan untuk tujuan pendidikan.</p>
+    <p>Sumber data: NASA, ESA, IAU, dan publikasi astronomi terkemuka.</p>
+</footer>
+
+<button id="back-to-top" title="Kembali ke Atas">↑</button>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', function() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progress-bar').style.width = scrolled + '%';
+});
+
+// Back to top button
+const backTopBtn = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backTopBtn.style.display = 'flex';
+    } else {
+        backTopBtn.style.display = 'none';
+    }
+});
+backTopBtn.addEventListener('click', () => {
+    window.scrollTo({top:0, behavior:'smooth'});
+});
+
+// Animasi orbit CSS (keyframes)
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes orbit1 { from { transform: rotate(0deg) translate(60px) rotate(0deg); } to { transform: rotate(360deg) translate(60px) rotate(-360deg); } }
+@keyframes orbit2 { from { transform: rotate(0deg) translate(90px) rotate(0deg); } to { transform: rotate(360deg) translate(90px) rotate(-360deg); } }
+@keyframes orbit3 { from { transform: rotate(0deg) translate(120px) rotate(0deg); } to { transform: rotate(360deg) translate(120px) rotate(-360deg); } }
+@keyframes orbit4 { from { transform: rotate(0deg) translate(150px) rotate(0deg); } to { transform: rotate(360deg) translate(150px) rotate(-360deg); } }
+@keyframes orbit5 { from { transform: rotate(0deg) translate(180px) rotate(0deg); } to { transform: rotate(360deg) translate(180px) rotate(-360deg); } }
+@keyframes orbit6 { from { transform: rotate(0deg) translate(210px) rotate(0deg); } to { transform: rotate(360deg) translate(210px) rotate(-360deg); } }
+@keyframes orbit7 { from { transform: rotate(0deg) translate(240px) rotate(0deg); } to { transform: rotate(360deg) translate(240px) rotate(-360deg); } }
+@keyframes orbit8 { from { transform: rotate(0deg) translate(270px) rotate(0deg); } to { transform: rotate(360deg) translate(270px) rotate(-360deg); } }
+`;
+document.head.appendChild(style);
+
+// Canvas asteroid simulation
+const canvas = document.getElementById('asteroidCanvas');
+const ctx = canvas.getContext('2d');
+let asteroids = [];
+let ship = {x: canvas.width/2, y: canvas.height-30, size:12, dx:0};
+let bullets = [];
+let gameRunning = false;
+let animationId;
+
+class Asteroid {
+    constructor() {
+        this.size = Math.random()*30+20;
+        this.x = Math.random()*(canvas.width - this.size*2) + this.size;
+        this.y = -this.size;
+        this.speed = Math.random()*2+1;
+        this.angle = Math.random()*Math.PI*2;
+        this.spin = Math.random()*0.2-0.1;
+        this.color = '#'+Math.floor(Math.random()*0xffffff).toString(16).padStart(6,'0');
+    }
+    update() {
+        this.y += this.speed;
+        this.x += Math.cos(this.angle)*this.speed*0.5;
+        this.angle += this.spin;
+    }
+    draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.moveTo(0, -this.size/2);
+        ctx.lineTo(this.size/2, this.size/2);
+        ctx.lineTo(-this.size/2, this.size/2);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    }
+}
+function spawnAsteroid() {
+    if (Math.random()<0.02) asteroids.push(new Asteroid());
+}
+function drawShip() {
+    ctx.fillStyle = '#03a9f4';
+    ctx.beginPath();
+    ctx.moveTo(ship.x, ship.y-ship.size);
+    ctx.lineTo(ship.x-ship.size, ship.y+ship.size);
+    ctx.lineTo(ship.x+ship.size, ship.y+ship.size);
+    ctx.closePath();
+    ctx.fill();
+}
+function drawBullets() {
+    ctx.fillStyle = '#ffeb3b';
+    bullets.forEach(b => {
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, 2, 0, Math.PI*2);
+        ctx.fill();
+    });
+}
+function updateBullets() {
+    bullets.forEach((b,i)=> { b.y-=5; if(b.y<0) bullets.splice(i,1); });
+}
+function checkCollisions() {
+    // bullet-asteroid
+    bullets.forEach((b,bi)=>{
+        asteroids.forEach((a,ai)=>{
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const dist = Math.sqrt(dx*dx+dy*dy);
+            if(dist < a.size/2+2){
+                bullets.splice(bi,1);
+                asteroids.splice(ai,1);
+            }
+        });
+    });
+    // ship-asteroid
+    asteroids.forEach((a,i)=>{
+        const dx = ship.x - a.x;
+        const dy = ship.y - a.y;
+        const dist = Math.sqrt(dx*dx+dy*dy);
+        if(dist < ship.size + a.size/2){
+            gameOver();
+        }
+    });
+}
+function gameLoop() {
+    if(!gameRunning) return;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    spawnAsteroid();
+    asteroids.forEach(a=>{ a.update(); a.draw(); });
+    drawShip();
+    updateBullets();
+    drawBullets();
+    checkCollisions();
+    animationId = requestAnimationFrame(gameLoop);
+}
+function startGame() {
+    gameRunning = true;
+    asteroids = [];
+    bullets = [];
+    ship.x = canvas.width/2;
+    ship.y = canvas.height-30;
+    gameLoop();
+    document.getElementById('startSim').textContent = 'Simulasi Berjalan';
+    document.getElementById('startSim').disabled = true;
+}
+function gameOver() {
+    gameRunning = false;
+    cancelAnimationFrame(animationId);
+    alert('Game Over! Asteroid menabrak kapal Anda.');
+    document.getElementById('startSim').textContent = 'Mulai Simulasi';
+    document.getElementById('startSim').disabled = false;
+}
+document.getElementById('startSim').addEventListener('click', startGame);
+document.addEventListener('keydown', e=>{
+    if(!gameRunning) return;
+    if(e.key==='ArrowLeft' && ship.x>ship.size) ship.x -= 15;
+    if(e.key==='ArrowRight' && ship.x<canvas.width-ship.size) ship.x += 15;
+    if(e.key===' ') {
+        bullets.push({x:ship.x, y:ship.y-ship.size});
+    }
+});
+
+// Quiz data
+const quizQuestions = [
+    {
+        q:"Planet yang memiliki rotasi mundur (retrograde) adalah?",
+        a:["Merkurius","Venus","Mars","Jupiter"],
+        c:1
+    },
+    {
+        q:"Benda kecil yang berada di sabuk asteroid terutama berada di antara orbit planet mana?",
+        a:["Bumi dan Mars","Mars dan Jupiter","Jupiter dan Saturnus","Saturnus dan Uranus"],
+        c:1
+    },
+    {
+        q:"Apakah yang menyebabkan fenomen aurora di bumi?",
+        a:["Pantulan cahaya bulan","Interaksi partikel angin surya dengan magnetosfer","Refraksi cahaya di atmosfir","Panaskan dari inti bumi"],
+        c:1
+    },
+    {
+        q:"Planet dengan cincin paling menonjol adalah?",
+        a:["Jupiter","Saturnus","Uranus","Neptunus"],
+        c:1
+    },
+    {
+        q:"Saturnus terutama terdiri dari gas apa?",
+        a:["Oksigen dan nitrogen","Hidrogen dan helium","Karbon dioksida","Metana"],
+        c:1
+    },
+    {
+        q:"Berapa lama kurangnya satu orbit Merkurius sekitar Matahari?",
+        a:["88 hari","225 hari","365 hari","687 hari"],
+        c:0
+    },
+    {
+        q:"Gelombang gravitasi pertama kali terdeteksi dari peristiwa apa?",
+        a:["Tabrakan dua bintang neutron","Gabungan lubang hitam","Ledakan supernova","Tabrakan asteroid besar"],
+        c:1
+    },
+    {
+        q:"Fenomena precisi bumi menyebabkan perubahan posisi kutub langit dalam kisaran waktu berapa?",
+        a:["100 tahun","1.000 tahun","10.000 tahun","25.800 tahun"],
+        c:3
+    },
+    {
+        q:"Manakah berikut ini bukan merupakan komposisi utama atmosfer Venus?",
+        a:["Karbon dioksida","Nitrogen","Sulfur dioksida","Argon"],
+        c:1
+    },
+    {
+        q:"Salah satu Bukti bahwa bumi memiliki medan magnet adalah?",
+        a:["Ada cicilan benua","Terjadinya aurora","Ada aktivitas vulkanik","Ada perubahan suhu laut"],
+        c:1
+    }
+];
+
+let score = 0;
+let currentQ = 0;
+let timerInterval;
+let timeLeft = 15*60; // 15 menit
+
+function loadQuiz(){
+    const container = document.getElementById('quiz-content');
+    container.innerHTML='';
+    quizQuestions.forEach((q, idx)=>{
+        const div=document.createElement('div');
+        div.className='question';
+        div.innerHTML=`<p><strong>No.${idx+1}.</strong> ${q.q}</p>`;
+        q.a.forEach((opt, i)=>{
+            const letter = String.fromCharCode(65+i);
+            div.innerHTML+=`<label><input type="radio" name="q${idx}" value="${i}"> ${letter}. ${opt}</label>`;
+        });
+        container.appendChild(div);
+    });
+}
+function startTimer(){
+    clearInterval(timerInterval);
+    timerInterval = setInterval(()=>{
+        const mins=Math.floor(timeLeft/60);
+        const secs=timeLeft%60;
+        document.getElementById('time').textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+        if(timeLeft<=0){
+            clearInterval(timerInterval);
+            submitQuiz();
+        }
+        timeLeft--;
+    },1000);
+}
+function submitQuiz(){
+    clearInterval(timerInterval);
+    let correct=0;
+    quizQuestions.forEach((q,idx)=>{
+        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
+        if(selected){
+            const ans = parseInt(selected.value);
+            if(ans===q.c) correct++;
+        }
+    });
+    score = Math.round((correct/quizQuestions.length)*100);
+    let grade;
+    if(score>=85) grade='A';
+    else if(score>=70) grade='B';
+    else if(score>=55) grade='C';
+    else grade='D';
+    const resultDiv=document.getElementById('result');
+    resultDiv.className=`${grade}`;
+    resultDiv.style.display='block';
+    resultDiv.innerHTML=`
+        <h2>Hasil Quiz</h2>
+        <p>Anda menjawab ${correct} dari ${quizQuestions.length} soal dengan benar.</p>
+        <p>Nilai persentase: ${score}%</p>
+        <p>Grade: ${grade}</p>
+        <button class="btn" onclick="location.reload()">Ulang Quiz</button>
+    `;
+}
+document.getElementById('submitQuiz').addEventListener('click', submitQuiz);
+window.addEventListener('load',()=>{
+    loadQuiz();
+    startTimer();
+});
+</script>
+</body>
+</html>
+</html>

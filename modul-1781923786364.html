@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tata Surya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .header nav ul li {
+            margin-right: 20px;
+        }
+        .header nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .header nav a:hover {
+            color: #ccc;
+        }
+        .beranda {
+            padding-top: 60px;
+            background-image: url('https://picsum.photos/2000/1000');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .materi {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sub-materi {
+            padding: 20px;
+            background-color: #f7f7f7;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .animasi {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .quiz {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .glosarium {
+            padding: 20px;
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            clear: both;
+        }
+        .progress-bar {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #4CAF50;
+            z-index: 1000;
+        }
+        .kembali-atas {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .kembali-atas:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#materi">Materi</a></li>
+                <li><a href="#sub-materi">Sub-Materi</a></li>
+                <li><a href="#animasi">Animasi</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#glosarium">Glosarium</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="beranda" id="beranda">
+        <h1>Tata Surya</h1>
+        <p>Tujuan pembelajaran: Memahami struktur dan komponen tata surya</p>
+        <p>Kompetensi dasar: Menjelaskan struktur dan komponen tata surya</p>
+        <p>Petunjuk penggunaan: Baca materi dengan teliti dan kerjakan quiz untuk memahami konsep tata surya</p>
+    </div>
+    <div class="materi" id="materi">
+        <h2>Materi 1: Pengenalan Tata Surya</h2>
+        <p>Tata surya adalah sistem yang terdiri dari matahari dan delapan planet yang mengorbit di sekitarnya. Matahari adalah bintang yang berada di pusat tata surya dan menjadi sumber cahaya dan panas bagi planet-planet.</p>
+        <p>Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas. Planet terestrial adalah planet yang memiliki permukaan padat dan terdiri dari batuan, sedangkan planet gas adalah planet yang terdiri dari gas dan tidak memiliki permukaan padat.</p>
+        <p>Contoh nyata dari aplikasi tata surya di kehidupan sehari-hari adalah penggunaan energi surya untuk menghasilkan listrik. Energi surya dapat diubah menjadi listrik menggunakan panel surya, yang kemudian dapat digunakan untuk memenuhi kebutuhan listrik rumah tangga.</p>
+        <img src="https://picsum.photos/200/300" alt="Gambar Ilustrasi">
+        <ul>
+            <li>Poin penting 1: Tata surya terdiri dari matahari dan delapan planet</li>
+            <li>Poin penting 2: Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas</li>
+            <li>Poin penting 3: Energi surya dapat diubah menjadi listrik menggunakan panel surya</li>
+        </ul>
+    </div>
+    <div class="sub-materi" id="sub-materi">
+        <h2>Sub-Materi 1.1: Struktur Tata Surya</h2>
+        <p>Tata surya memiliki struktur yang unik, dengan matahari sebagai pusat dan planet-planet yang mengorbit di sekitarnya. Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas.</p>
+        <p>Planet terestrial adalah planet yang memiliki permukaan padat dan terdiri dari batuan, sedangkan planet gas adalah planet yang terdiri dari gas dan tidak memiliki permukaan padat. Contoh planet terestrial adalah Bumi, Mars, dan Venus, sedangkan contoh planet gas adalah Jupiter, Saturnus, dan Uranus.</p>
+        <img src="https://picsum.photos/200/300" alt="Gambar Ilustrasi">
+        <ul>
+            <li>Poin penting 1: Tata surya memiliki struktur yang unik</li>
+            <li>Poin penting 2: Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas</li>
+            <li>Poin penting 3: Contoh planet terestrial adalah Bumi, Mars, dan Venus</li>
+        </ul>
+    </div>
+    <div class="sub-materi">
+        <h2>Sub-Materi 1.2: Komponen Tata Surya</h2>
+        <p>Tata surya terdiri dari beberapa komponen, yaitu matahari, planet-planet, asteroid, komet, dan meteorit. Matahari adalah bintang yang berada di pusat tata surya dan menjadi sumber cahaya dan panas bagi planet-planet.</p>
+        <p>Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas. Planet terestrial adalah planet yang memiliki permukaan padat dan terdiri dari batuan, sedangkan planet gas adalah planet yang terdiri dari gas dan tidak memiliki permukaan padat.</p>
+        <img src="https://picsum.photos/200/300" alt="Gambar Ilustrasi">
+        <ul>
+            <li>Poin penting 1: Tata surya terdiri dari beberapa komponen</li>
+            <li>Poin penting 2: Matahari adalah bintang yang berada di pusat tata surya</li>
+            <li>Poin penting 3: Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas</li>
+        </ul>
+    </div>
+    <div class="sub-materi">
+        <h2>Sub-Materi 1.3: Proses Pembentukan Tata Surya</h2>
+        <p>Tata surya terbentuk sekitar 4,6 miliar tahun yang lalu dari awan gas dan debu yang berada di ruang angkasa. Proses pembentukan tata surya dimulai dengan gravitasi yang menarik awan gas dan debu ke arah pusat, sehingga membentuk matahari.</p>
+        <p>Planet-planet di tata surya kemudian terbentuk dari sisa-sisa gas dan debu yang tidak termasuk ke dalam matahari. Proses pembentukan planet-planet ini dipengaruhi oleh beberapa faktor, seperti gravitasi, tekanan, dan suhu.</p>
+        <img src="https://picsum.photos/200/300" alt="Gambar Ilustrasi">
+        <ul>
+            <li>Poin penting 1: Tata surya terbentuk sekitar 4,6 miliar tahun yang lalu</li>
+            <li>Poin penting 2: Proses pembentukan tata surya dimulai dengan gravitasi yang menarik awan gas dan debu ke arah pusat</li>
+            <li>Poin penting 3: Planet-planet di tata surya kemudian terbentuk dari sisa-sisa gas dan debu yang tidak termasuk ke dalam matahari</li>
+        </ul>
+    </div>
+    <div class="sub-materi">
+        <h2>Sub-Materi 1.4: Struktur dan Komponen Matahari</h2>
+        <p>Matahari adalah bintang yang berada di pusat tata surya dan menjadi sumber cahaya dan panas bagi planet-planet. Matahari memiliki struktur yang unik, dengan inti yang panas dan terdiri dari gas yang sangat panas.</p>
+        <p>Matahari juga memiliki beberapa komponen, seperti fotosfer, kromosfer, dan korona. Fotosfer adalah lapisan yang paling luar dari matahari dan merupakan sumber cahaya yang kita lihat. Kromosfer adalah lapisan yang terletak di atas fotosfer dan memiliki suhu yang lebih tinggi. Korona adalah lapisan yang paling luar dari matahari dan memiliki suhu yang sangat tinggi.</p>
+        <img src="https://picsum.photos/200/300" alt="Gambar Ilustrasi">
+        <ul>
+            <li>Poin penting 1: Matahari adalah bintang yang berada di pusat tata surya</li>
+            <li>Poin penting 2: Matahari memiliki struktur yang unik</li>
+            <li>Poin penting 3: Matahari memiliki beberapa komponen, seperti fotosfer, kromosfer, dan korona</li>
+        </ul>
+    </div>
+    <div class="sub-materi">
+        <h2>Sub-Materi 1.5: Proses Pembentukan Planet-Planet</h2>
+        <p>Planet-planet di tata surya kemudian terbentuk dari sisa-sisa gas dan debu yang tidak termasuk ke dalam matahari. Proses pembentukan planet-planet ini dipengaruhi oleh beberapa faktor, seperti gravitasi, tekanan, dan suhu.</p>
+        <p>Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas. Planet terestrial adalah planet yang memiliki permukaan padat dan terdiri dari batuan, sedangkan planet gas adalah planet yang terdiri dari gas dan tidak memiliki permukaan padat.</p>
+        <img src="https://picsum.photos/200/300" alt="Gambar Ilustrasi">
+        <ul>
+            <li>Poin penting 1: Planet-planet di tata surya kemudian terbentuk dari sisa-sisa gas dan debu yang tidak termasuk ke dalam matahari</li>
+            <li>Poin penting 2: Proses pembentukan planet-planet ini dipengaruhi oleh beberapa faktor, seperti gravitasi, tekanan, dan suhu</li>
+            <li>Poin penting 3: Planet-planet di tata surya dapat dibagi menjadi dua kategori, yaitu planet terestrial dan planet gas</li>
+        </ul>
+    </div>
+    <div class="animasi" id="animasi">
+        <h2>Animasi 1: Proses Pembentukan Tata Surya</h2>
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <script>
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            let x = 0;
+            let y = 0;
+            let vx = 2;
+            let vy = 2;
+            let radius = 10;
+            let color = 'red';
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = color;
+                ctx.fill();
+                x += vx;
+                y += vy;
+                if (x + radius > canvas.width || x - radius < 0) {
+                    vx = -vx;
+                }
+                if (y + radius > canvas.height || y - radius < 0) {
+                    vy = -vy;
+                }
+                requestAnimationFrame(draw);
+            }
+            draw();
+        </script>
+    </div>
+    <div class="animasi">
+        <h2>Animasi 2: Proses Pembentukan Planet-Planet</h2>
+        <canvas id="canvas2" width="400" height="400"></canvas>
+        <script>
+            const canvas2 = document.getElementById('canvas2');
+            const ctx2 = canvas2.getContext('2d');
+            let x2 = 0;
+            let y2 = 0;
+            let vx2 = 2;
+            let vy2 = 2;
+            let radius2 = 10;
+            let color2 = 'blue';
+            function draw2() {
+                ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
+                ctx2.beginPath();
+                ctx2.arc(x2, y2, radius2, 0, 2 * Math.PI);
+                ctx2.fillStyle = color2;
+                ctx2.fill();
+                x2 += vx2;
+                y2 += vy2;
+                if (x2 + radius2 > canvas2.width || x2 - radius2 < 0) {
+                    vx2 = -vx2;
+                }
+                if (y2 + radius2 > canvas2.height || y2 - radius2 < 0) {
+                    vy2 = -vy2;
+                }
+                requestAnimationFrame(draw2);
+            }
+            draw2();
+        </script>
+    </div>
+    <div class="quiz" id="quiz">
+        <h2>Quiz 1: Pengenalan Tata Surya</h2>
+        <p>Pertanyaan 1: Apa yang dimaksud dengan tata surya?</p>
+        <input type="radio" id="q1a" name="q1" value="A">
+        <label for="q1a">A) Sistem yang terdiri dari matahari dan delapan planet</label>
+        <input type="radio" id="q1b" name="q1" value="B">
+        <label for="q1b">B) Sistem yang terdiri dari matahari dan tujuh planet</label>
+        <input type="radio" id="q1c" name="q1" value="C">
+        <label for="q1c">C) Sistem yang terdiri dari matahari dan sembilan planet</label>
+        <button id="q1submit">Submit</button>
+        <div id="q1feedback"></div>
+        <script>
+            const q1submit = document.getElementById('q1submit');
+            q1submit.addEventListener('click', () => {
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                if (q1.value === 'A') {
+                    document.getElementById('q1feedback').innerHTML = 'Benar!';
+                } else {
+                    document.getElementById('q1feedback').innerHTML = 'Salah. Jawaban yang benar adalah A) Sistem yang terdiri dari matahari dan delapan planet';
+                }
+            });
+        </script>
+        <p>Pertanyaan 2: Apa yang dimaksud dengan planet terestrial?</p>
+        <input type="radio" id="q2a" name="q2" value="A">
+        <label for="q2a">A) Planet yang memiliki permukaan padat dan terdiri dari batuan</label>
+        <input type="radio" id="q2b" name="q2" value="B">
+        <label for="q2b">B) Planet yang terdiri dari gas dan tidak memiliki permukaan padat</label>
+        <input type="radio" id="q2c" name="q2" value="C">
+        <label for="q2c">C) Planet yang memiliki permukaan cair dan ter

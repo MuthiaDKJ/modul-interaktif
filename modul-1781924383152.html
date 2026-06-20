@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotosintesis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: #2196F3;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        .beranda {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        .judul {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .tujuan {
+            font-size: 18px;
+            margin-bottom: 1rem;
+        }
+        .kompetensi {
+            font-size: 18px;
+            margin-bottom: 2rem;
+        }
+        .materi {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        .sub-bab {
+            background-color: #fff;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sub-bab img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .animasi {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        .canvas {
+            border: 1px solid #000;
+            margin: 1rem;
+        }
+        .quiz {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        .soal {
+            background-color: #fff;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .soal p {
+            font-size: 18px;
+            margin-bottom: 1rem;
+        }
+        .pilihan {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem;
+        }
+        .pilihan button {
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #2196F3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .glosarium {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+        .istilah {
+            background-color: #fff;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .istilah p {
+            font-size: 18px;
+            margin-bottom: 1rem;
+        }
+        .footer {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #2196F3;
+            z-index: 1;
+        }
+        .tombol-kembali {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #2196F3;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <a href="#beranda">Beranda</a>
+            <a href="#materi">Materi</a>
+            <a href="#animasi">Animasi</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#glosarium">Glosarium</a>
+        </div>
+    </div>
+    <div id="beranda" class="beranda">
+        <h1 class="judul">Fotosintesis</h1>
+        <p class="tujuan">Tujuan pembelajaran: memahami proses fotosintesis pada tumbuhan</p>
+        <p class="kompetensi">Kompetensi dasar: mengidentifikasi komponen-komponen yang terkait dengan fotosintesis</p>
+    </div>
+    <div id="materi" class="materi">
+        <div class="sub-bab">
+            <h2>Sub Bab 1: Pengertian Fotosintesis</h2>
+            <img src="https://placehold.co/600x300/2196F3/white?text=Pengertian+Fotosintesis" style="width:100%;border-radius:8px;margin:1rem 0">
+            <p>Fotosintesis adalah proses pembuatan makanan oleh tumbuhan yang menggunakan energi cahaya matahari, air, dan udara.</p>
+            <p>Proses fotosintesis terjadi di dalam kloroplas, yang merupakan organel yang terkandung dalam sel-sel tumbuhan.</p>
+            <p>Hasil dari fotosintesis adalah glukosa dan oksigen.</p>
+        </div>
+        <div class="sub-bab">
+            <h2>Sub Bab 2:Komponen-Komponen Fotosintesis</h2>
+            <img src="https://placehold.co/600x300/2196F3/white?text=Komponen-Komponen+Fotosintesis" style="width:100%;border-radius:8px;margin:1rem 0">
+            <p> Komponen-komponen yang terkait dengan fotosintesis adalah klorofil, stomata, dan xilem.</p>
+            <p>Klorofil adalah pigmen yang terkandung dalam kloroplas dan berfungsi untuk menyerap energi cahaya matahari.</p>
+            <p>Stomata adalah lubang-lubang kecil yang terkandung pada daun tumbuhan dan berfungsi untuk mengatur pertukaran gas.</p>
+        </div>
+        <div class="sub-bab">
+            <h2>Sub Bab 3: Proses Fotosintesis</h2>
+            <img src="https://placehold.co/600x300/2196F3/white?text=Proses+Fotosintesis" style="width:100%;border-radius:8px;margin:1rem 0">
+            <p>Proses fotosintesis terdiri dari dua tahap, yaitu tahap terang dan tahap gelap.</p>
+            <p>Tahap terang adalah tahap yang melibatkan penyerapan energi cahaya matahari oleh klorofil.</p>
+            <p>Tahap gelap adalah tahap yang melibatkan konversi energi cahaya menjadi energi kimia.</p>
+        </div>
+    </div>
+    <div id="animasi" class="animasi">
+        <canvas id="canvas" width="600" height="300" class="canvas"></canvas>
+        <script>
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            let x = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = 'green';
+                ctx.fillRect(x, 100, 50, 50);
+                x += 1;
+                if (x > canvas.width) {
+                    x = 0;
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        </script>
+    </div>
+    <div id="quiz" class="quiz">
+        <h2>Quiz Fotosintesis</h2>
+        <div class="soal">
+            <p>Soal 1: Apa yang dimaksud dengan fotosintesis?</p>
+            <div class="pilihan">
+                <button onclick="jawaban1()">Proses pembuatan makanan oleh tumbuhan</button>
+                <button onclick="jawaban1()">Proses pembuatan energi oleh tumbuhan</button>
+                <button onclick="jawaban1()">Proses pembuatan air oleh tumbuhan</button>
+            </div>
+        </div>
+        <div class="soal">
+            <p>Soal 2: Apa yang digunakan oleh tumbuhan untuk menyerap energi cahaya matahari?</p>
+            <div class="pilihan">
+                <button onclick="jawaban2()">Klorofil</button>
+                <button onclick="jawaban2()">Stomata</button>
+                <button onclick="jawaban2()">Xilem</button>
+            </div>
+        </div>
+        <div class="soal">
+            <p>Soal 3: Apa yang dihasilkan oleh proses fotosintesis?</p>
+            <div class="pilihan">
+                <button onclick="jawaban3()">Glukosa dan oksigen</button>
+                <button onclick="jawaban3()">Glukosa dan air</button>
+                <button onclick="jawaban3()">Oksigen dan air</button>
+            </div>
+        </div>
+        <div class="soal">
+            <p>Soal 4: Apa yang berfungsi untuk mengatur pertukaran gas pada tumbuhan?</p>
+            <div class="pilihan">
+                <button onclick="jawaban4()">Stomata</button>
+                <button onclick="jawaban4()">Klorofil</button>
+                <button onclick="jawaban4()">Xilem</button>
+            </div>
+        </div>
+        <div class="soal">
+            <p>Soal 5: Apa yang melibatkan penyerapan energi cahaya matahari oleh klorofil?</p>
+            <div class="pilihan">
+                <button onclick="jawaban5()">Tahap terang</button>
+                <button onclick="jawaban5()">Tahap gelap</button>
+                <button onclick="jawaban5()">Tahap fotosintesis</button>
+            </div>
+        </div>
+        <p id="skor">Skor: 0</p>
+        <p id="waktu">Waktu: 10 menit</p>
+        <script>
+            let skor = 0;
+            let waktu = 600;
+            function jawaban1() {
+                skor += 1;
+                document.getElementById('skor').innerHTML = 'Skor: ' + skor;
+            }
+            function jawaban2() {
+                skor += 1;
+                document.getElementById('skor').innerHTML = 'Skor: ' + skor;
+            }
+            function jawaban3() {
+                skor += 1;
+                document.getElementById('skor').innerHTML = 'Skor: ' + skor;
+            }
+            function jawaban4() {
+                skor += 1;
+                document.getElementById('skor').innerHTML = 'Skor: ' + skor;
+            }
+            function jawaban5() {
+                skor += 1;
+                document.getElementById('skor').innerHTML = 'Skor: ' + skor;
+            }
+            setInterval(function() {
+                waktu -= 1;
+                document.getElementById('waktu').innerHTML = 'Waktu: ' + waktu + ' detik';
+                if (waktu === 0) {
+                    alert('Waktu habis!');
+                }
+            }, 1000);
+        </script>
+    </div>
+    <div id="glosarium" class="glosarium">
+        <h2>Glosarium</h2>
+        <div class="istilah">
+            <p>Klorofil: pigmen yang terkandung dalam kloroplas dan berfungsi untuk menyerap energi cahaya matahari</p>
+        </div>
+        <div class="istilah">
+            <p>Stomata: lubang-lubang kecil yang terkandung pada daun tumbuhan dan berfungsi untuk mengatur pertukaran gas</p>
+        </div>
+        <div class="istilah">
+            <p>Xilem: jaringan yang berfungsi untuk mengangkut air dan mineral dari akar ke daun</p>
+        </div>
+        <div class="istilah">
+            <p>Fotosintesis: proses pembuatan makanan oleh tumbuhan yang menggunakan energi cahaya matahari, air, dan udara</p>
+        </div>
+        <div class="istilah">
+            <p>Kloroplas: organel yang terkandung dalam sel-sel tumbuhan dan berfungsi untuk melakukan fotosintesis</p>
+        </div>
+        <div class="istilah">
+            <p>Glukosa: hasil dari proses fotosintesis yang digunakan oleh tumbuhan sebagai sumber energi</p>
+        </div>
+        <div class="istilah">
+            <p>Oksigen: hasil dari proses fotosintesis yang digunakan oleh makhluk hidup sebagai sumber energi</p>
+        </div>
+        <div class="istilah">
+            <p>Tahap terang: tahap yang melibatkan penyerapan energi cahaya matahari oleh klorofil</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Fotosintesis</p>
+    </div>
+    <div class="progress"></div>
+    <button class="tombol-kembali" onclick="window.scrollTo(0, 0)">Kembali ke atas</button>
+    <script>
+        const progress = document.querySelector('.progress');
+        const scrollPosition = () => {
+            const scrollHeight = document.documentElement.scrollHeight;
+            const windowHeight = document.documentElement.clientHeight;
+            const height = scrollHeight - windowHeight;
+            const position = window.scrollY;
+            const percentage = (position / height) * 100;
+            progress.style.width = `${percentage}%`;
+        };
+        window.addEventListener('scroll', scrollPosition);
+    </script>
+</body>
+</html>

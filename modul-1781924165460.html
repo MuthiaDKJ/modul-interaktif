@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Pembelajaran Interaktif</title>
+    <style>
+        /* Warna tema */
+        :root {
+            --primary-color: #4488ff;
+            --secondary-color: #ffffff;
+            --background-color: #f7f7f7;
+        }
+
+        /* Font */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Navigasi */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        /* Konten */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card-based layout */
+        .card {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            width: 0;
+            height: 5px;
+            background-color: var(--primary-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Tombol Kembali ke Atas */
+        .back-to-top {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* Animasi hover dan transisi */
+        .card:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            transition: all 0.2s ease-out;
+        }
+
+        /* Animasi canvas */
+        #canvas {
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#beranda">Beranda</a>
+            <a href="#materi">Materi</a>
+            <a href="#animasi">Animasi</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#glosarium">Glosarium</a>
+        </nav>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <!-- Tombol Kembali ke Atas -->
+    <button class="back-to-top" id="back-to-top">Kembali ke Atas</button>
+
+    <!-- Beranda -->
+    <section id="beranda" class="container">
+        <h1>Modul Pembelajaran Interaktif</h1>
+        <p>Tujuan pembelajaran: Memahami konsep dasar pembelajaran interaktif</p>
+        <p>Kompetensi dasar: Menerapkan konsep dasar pembelajaran interaktif dalam kehidupan sehari-hari</p>
+        <p>Petunjuk penggunaan: Baca dan pahami materi, kemudian kerjakan quiz dan glosarium</p>
+    </section>
+
+    <!-- Materi -->
+    <section id="materi" class="container">
+        <h1>Materi</h1>
+        <div class="card">
+            <h2>Sub-bab 1: Pengertian Pembelajaran Interaktif</h2>
+            <p>Pembelajaran interaktif adalah proses pembelajaran yang melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar.</p>
+            <p>Pembelajaran interaktif dapat dilakukan melalui berbagai metode, seperti diskusi, permainan, dan simulasi.</p>
+            <p>Contoh nyata: Pembelajaran interaktif dapat dilakukan melalui aplikasi pembelajaran online, seperti Duolingo.</p>
+            <img src="https://placehold.co/600x300/4488ff/white?text=Pengertian+Pembelajaran+Interaktif" alt="Pengertian Pembelajaran Interaktif">
+            <ul>
+                <li>Poin penting 1: Pembelajaran interaktif melibatkan interaksi antara siswa dan guru.</li>
+                <li>Poin penting 2: Pembelajaran interaktif dapat dilakukan melalui berbagai metode.</li>
+                <li>Poin penting 3: Pembelajaran interaktif dapat meningkatkan motivasi belajar siswa.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Sub-bab 2: Manfaat Pembelajaran Interaktif</h2>
+            <p>Pembelajaran interaktif memiliki beberapa manfaat, seperti meningkatkan motivasi belajar siswa, meningkatkan kemampuan berpikir kritis, dan meningkatkan kemampuan berkomunikasi.</p>
+            <p>Pembelajaran interaktif juga dapat meningkatkan kemampuan siswa dalam menerapkan konsep dasar pembelajaran interaktif dalam kehidupan sehari-hari.</p>
+            <p>Contoh nyata: Pembelajaran interaktif dapat meningkatkan kemampuan siswa dalam menerapkan konsep dasar pembelajaran interaktif dalam kehidupan sehari-hari, seperti dalam proyek pembangunan.</p>
+            <img src="https://placehold.co/600x300/4488ff/white?text=Manfaat+Pembelajaran+Interaktif" alt="Manfaat Pembelajaran Interaktif">
+            <ul>
+                <li>Poin penting 1: Pembelajaran interaktif dapat meningkatkan motivasi belajar siswa.</li>
+                <li>Poin penting 2: Pembelajaran interaktif dapat meningkatkan kemampuan berpikir kritis.</li>
+                <li>Poin penting 3: Pembelajaran interaktif dapat meningkatkan kemampuan berkomunikasi.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>Sub-bab 3: Implementasi Pembelajaran Interaktif</h2>
+            <p>Pembelajaran interaktif dapat diimplementasikan dalam berbagai cara, seperti melalui aplikasi pembelajaran online, permainan, dan simulasi.</p>
+            <p>Pembelajaran interaktif juga dapat diimplementasikan melalui proyek pembangunan, seperti dalam proyek pembangunan infrastruktur.</p>
+            <p>Contoh nyata: Pembelajaran interaktif dapat diimplementasikan melalui aplikasi pembelajaran online, seperti Duolingo.</p>
+            <img src="https://placehold.co/600x300/4488ff/white?text=Implementasi+Pembelajaran+Interaktif" alt="Implementasi Pembelajaran Interaktif">
+            <ul>
+                <li>Poin penting 1: Pembelajaran interaktif dapat diimplementasikan melalui aplikasi pembelajaran online.</li>
+                <li>Poin penting 2: Pembelajaran interaktif dapat diimplementasikan melalui permainan dan simulasi.</li>
+                <li>Poin penting 3: Pembelajaran interaktif dapat diimplementasikan melalui proyek pembangunan.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Animasi -->
+    <section id="animasi" class="container">
+        <h1>Animasi</h1>
+        <canvas id="canvas" width="600" height="300"></canvas>
+        <script>
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            let x = 0;
+            let y = 0;
+            let vx = 2;
+            let vy = 2;
+            let radius = 20;
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = 'rgba(68, 136, 255, 0.5)';
+                ctx.fill();
+
+                x += vx;
+                y += vy;
+
+                if (x + radius > canvas.width || x - radius < 0) {
+                    vx = -vx;
+                }
+
+                if (y + radius > canvas.height || y - radius < 0) {
+                    vy = -vy;
+                }
+            }
+
+            function animate() {
+                draw();
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        </script>
+    </section>
+
+    <!-- Video -->
+    <section id="video" class="container">
+        <h1>Video</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz" class="container">
+        <h1>Quiz</h1>
+        <div class="card">
+            <h2>Soal 1: Apa itu pembelajaran interaktif?</h2>
+            <p>pembelajaran interaktif adalah proses pembelajaran yang melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar.</p>
+            <label>
+                <input type="radio" name="soal1" value="A"> A) Pembelajaran yang melibatkan interaksi antara siswa dan guru
+            </label>
+            <label>
+                <input type="radio" name="soal1" value="B"> B) Pembelajaran yang melibatkan interaksi antara siswa dan lingkungan sekitar
+            </label>
+            <label>
+                <input type="radio" name="soal1" value="C"> C) Pembelajaran yang melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar
+            </label>
+            <label>
+                <input type="radio" name="soal1" value="D"> D) Pembelajaran yang tidak melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar
+            </label>
+            <button id="submit-soal1">Submit</button>
+            <p id="jawaban-soal1"></p>
+        </div>
+        <div class="card">
+            <h2>Soal 2: Apa manfaat pembelajaran interaktif?</h2>
+            <p>pembelajaran interaktif memiliki beberapa manfaat, seperti meningkatkan motivasi belajar siswa, meningkatkan kemampuan berpikir kritis, dan meningkatkan kemampuan berkomunikasi.</p>
+            <label>
+                <input type="radio" name="soal2" value="A"> A) Meningkatkan motivasi belajar siswa
+            </label>
+            <label>
+                <input type="radio" name="soal2" value="B"> B) Meningkatkan kemampuan berpikir kritis
+            </label>
+            <label>
+                <input type="radio" name="soal2" value="C"> C) Meningkatkan kemampuan berkomunikasi
+            </label>
+            <label>
+                <input type="radio" name="soal2" value="D"> D) Semua jawaban di atas
+            </label>
+            <button id="submit-soal2">Submit</button>
+            <p id="jawaban-soal2"></p>
+        </div>
+        <div class="card">
+            <h2>Soal 3: Bagaimana implementasi pembelajaran interaktif?</h2>
+            <p>pembelajaran interaktif dapat diimplementasikan dalam berbagai cara, seperti melalui aplikasi pembelajaran online, permainan, dan simulasi.</p>
+            <label>
+                <input type="radio" name="soal3" value="A"> A) Melalui aplikasi pembelajaran online
+            </label>
+            <label>
+                <input type="radio" name="soal3" value="B"> B) Melalui permainan dan simulasi
+            </label>
+            <label>
+                <input type="radio" name="soal3" value="C"> C) Melalui proyek pembangunan
+            </label>
+            <label>
+                <input type="radio" name="soal3" value="D"> D) Semua jawaban di atas
+            </label>
+            <button id="submit-soal3">Submit</button>
+            <p id="jawaban-soal3"></p>
+        </div>
+        <div class="card">
+            <h2>Soal 4: Apa konsep dasar pembelajaran interaktif?</h2>
+            <p>konsep dasar pembelajaran interaktif adalah proses pembelajaran yang melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar.</p>
+            <label>
+                <input type="radio" name="soal4" value="A"> A) Proses pembelajaran yang melibatkan interaksi antara siswa dan guru
+            </label>
+            <label>
+                <input type="radio" name="soal4" value="B"> B) Proses pembelajaran yang melibatkan interaksi antara siswa dan lingkungan sekitar
+            </label>
+            <label>
+                <input type="radio" name="soal4" value="C"> C) Proses pembelajaran yang melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar
+            </label>
+            <label>
+                <input type="radio" name="soal4" value="D"> D) Proses pembelajaran yang tidak melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar
+            </label>
+            <button id="submit-soal4">Submit</button>
+            <p id="jawaban-soal4"></p>
+        </div>
+        <div class="card">
+            <h2>Soal 5: Apa tujuan pembelajaran interaktif?</h2>
+            <p>tujuan pembelajaran interaktif adalah memahami konsep dasar pembelajaran interaktif dan menerapkan konsep dasar pembelajaran interaktif dalam kehidupan sehari-hari.</p>
+            <label>
+                <input type="radio" name="soal5" value="A"> A) Memahami konsep dasar pembelajaran interaktif
+            </label>
+            <label>
+                <input type="radio" name="soal5" value="B"> B) Menerapkan konsep dasar pembelajaran interaktif dalam kehidupan sehari-hari
+            </label>
+            <label>
+                <input type="radio" name="soal5" value="C"> C) Semua jawaban di atas
+            </label>
+            <label>
+                <input type="radio" name="soal5" value="D"> D) Tidak ada jawaban di atas
+            </label>
+            <button id="submit-soal5">Submit</button>
+            <p id="jawaban-soal5"></p>
+        </div>
+        <button id="submit-quiz">Submit Quiz</button>
+        <p id="skor-quiz"></p>
+    </section>
+
+    <script>
+        let Skor = 0;
+
+        document.getElementById('submit-soal1').addEventListener('click', function() {
+            let jawaban1 = document.querySelector('input[name="soal1"]:checked').value;
+            if (jawaban1 === 'C') {
+                Skor += 20;
+                document.getElementById('jawaban-soal1').innerHTML = 'Jawaban Benar!';
+            } else {
+                document.getElementById('jawaban-soal1').innerHTML = 'Jawaban Salah!';
+            }
+        });
+
+        document.getElementById('submit-soal2').addEventListener('click', function() {
+            let jawaban2 = document.querySelector('input[name="soal2"]:checked').value;
+            if (jawaban2 === 'D') {
+                Skor += 20;
+                document.getElementById('jawaban-soal2').innerHTML = 'Jawaban Benar!';
+            } else {
+                document.getElementById('jawaban-soal2').innerHTML = 'Jawaban Salah!';
+            }
+        });
+
+        document.getElementById('submit-soal3').addEventListener('click', function() {
+            let jawaban3 = document.querySelector('input[name="soal3"]:checked').value;
+            if (jawaban3 === 'D') {
+                Skor += 20;
+                document.getElementById('jawaban-soal3').innerHTML = 'Jawaban Benar!';
+            } else {
+                document.getElementById('jawaban-soal3').innerHTML = 'Jawaban Salah!';
+            }
+        });
+
+        document.getElementById('submit-soal4').addEventListener('click', function() {
+            let jawaban4 = document.querySelector('input[name="soal4"]:checked').value;
+            if (jawaban4 === 'C') {
+                Skor += 20;
+                document.getElementById('jawaban-soal4').innerHTML = 'Jawaban Benar!';
+            } else {
+                document.getElementById('jawaban-soal4').innerHTML = 'Jawaban Salah!';
+            }
+        });
+
+        document.getElementById('submit-soal5').addEventListener('click', function() {
+            let jawaban5 = document.querySelector('input[name="soal5"]:checked').value;
+            if (jawaban5 === 'C') {
+                Skor += 20;
+                document.getElementById('jawaban-soal5').innerHTML = 'Jawaban Benar!';
+            } else {
+                document.getElementById('jawaban-soal5').innerHTML = 'Jawaban Salah!';
+            }
+        });
+
+        document.getElementById('submit-quiz').addEventListener('click', function() {
+            document.getElementById('skor-quiz').innerHTML = 'Skor Anda: ' + Skor + '%';
+            if (Skor >= 80) {
+                document.getElementById('skor-quiz').innerHTML += ' (A)';
+            } else if (Skor >= 60) {
+                document.getElementById('skor-quiz').innerHTML += ' (B)';
+            } else if (Skor >= 40) {
+                document.getElementById('skor-quiz').innerHTML += ' (C)';
+            } else {
+                document.getElementById('skor-quiz').innerHTML += ' (D)';
+            }
+        });
+    </script>
+
+    <!-- Glosarium -->
+    <section id="glosarium" class="container">
+        <h1>Glosarium</h1>
+        <div class="card">
+            <h2>Pembelajaran Interaktif</h2>
+            <p>Proses pembelajaran yang melibatkan interaksi antara siswa dan guru, serta antara siswa dan lingkungan sekitar.</p>
+        </div>
+        <div class="card">
+            <h2>Konsep Dasar</h2>
+            <p>Konsep yang menjadi dasar atau pondasi dalam proses pembelajaran.</p>
+        </div>
+        <div class="card">
+            <h2>Implementasi</h2>
+            <p>Proses penerapan konsep atau teori dalam praktek atau kehidupan sehari-hari.</p>
+        </div>
+        <div class="card">
+            <h2>Manfaat</h2>
+            <p>Keuntungan atau hasil yang diperoleh dari suatu proses atau kegiatan.</p>
+        </div>
+        <div class="card">
+            <h2>Tujuan</h2>
+            <p>Hasil atau sasaran yang ingin dicapai dari suatu proses atau kegiatan.</p>
+        </div>
+        <div class="card">
+            <h2>Simulasi</h2>
+            <p>Proses atau kegiatan yang meniru atau mengimitasi suatu proses atau kegiatan yang sebenarnya.</p>
+        </div>
+        <div class="card">
+            <h2>Permainan</h2>
+            <p*Kegiatan yang dilakukan untuk mencapai tujuan atau hasil yang diinginkan, dengan menggunakan cara atau metode yang menyenangkan.</p>
+        </div>
+        <div class="card">
+            <h2>Aplikasi Pembelajaran Online</h2>
+            <p>Program atau sistem yang digunakan untuk memfasilitasi proses pembelajaran, dengan menggunakan teknologi internet atau jaringan.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <p>Info Modul: Modul Pembelajaran Interaktif</p>
+        <p>Copyright 2023</p>
+    </footer>
+
+    <script>
+        // Scroll event listener
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.scrollY;
+            let progress = (scrollPosition / (document.body.offsetHeight - window.innerHeight)) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        // Back to top button
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>

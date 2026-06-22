@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proses Fotosintesis</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Arial Black',sans-serif;background:#f5f0e8;color:#1a1a1a;height:100vh;overflow:hidden;}
+.presentation{width:100%;height:100vh;position:relative;}
+.slide{display:none;width:100%;height:100vh;padding:3rem 4rem;flex-direction:column;justify-content:center;position:absolute;top:0;left:0;opacity:0;transition:opacity 0.2s;border:4px solid #1a1a1a;}
+.slide.active{display:flex;opacity:1;}
+.slide:nth-child(1){background:#ffeb3b;}
+.slide:nth-child(2){background:#ff6b6b;}
+.slide:nth-child(3){background:#4ecdc4;}
+.slide:nth-child(4){background:#a8e6cf;}
+.slide:nth-child(5){background:#ffd93d;}
+.slide:nth-child(6){background:#6c5ce7;color:#fff;}
+.slide-number{position:absolute;top:1rem;right:1.5rem;font-size:0.85rem;font-weight:900;color:#1a1a1a;background:#fff;border:3px solid #1a1a1a;padding:0.2rem 0.6rem;}
+.slide h2{font-size:2.5rem;font-weight:900;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:-1px;border-bottom:5px solid #1a1a1a;padding-bottom:0.8rem;line-height:1.1;}
+.slide ul{list-style:none;display:flex;flex-direction:column;gap:0.8rem;}
+.slide ul li{font-size:1.05rem;font-weight:700;padding:0.7rem 1rem;background:#fff;border:3px solid #1a1a1a;box-shadow:4px 4px 0 #1a1a1a;line-height:1.5;}
+.slide ul li::before{content:"▶ ";color:#1a1a1a;}
+.catatan{margin-top:1.5rem;padding:0.8rem 1rem;background:#fff;border:3px solid #1a1a1a;box-shadow:4px 4px 0 #1a1a1a;font-size:0.88rem;font-weight:700;}
+.nav{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:0;align-items:center;border:3px solid #1a1a1a;box-shadow:5px 5px 0 #1a1a1a;background:#fff;}
+.nav button{background:#fff;border:none;border-right:3px solid #1a1a1a;color:#1a1a1a;padding:0.6rem 1.5rem;cursor:pointer;font-size:0.9rem;font-weight:900;text-transform:uppercase;transition:all 0.1s;}
+.nav button:last-child{border-right:none;border-left:3px solid #1a1a1a;}
+.nav button:hover{background:#1a1a1a;color:#fff;}
+.nav span{color:#1a1a1a;font-size:0.85rem;font-weight:900;min-width:70px;text-align:center;padding:0 0.5rem;}
+.header-info{position:fixed;top:1rem;left:1.5rem;}
+.header-info h1{font-size:0.95rem;font-weight:900;color:#1a1a1a;text-transform:uppercase;background:#fff;border:3px solid #1a1a1a;padding:0.2rem 0.6rem;box-shadow:3px 3px 0 #1a1a1a;}
+.header-info p{display:none;}
+.progress{position:fixed;top:0;left:0;height:6px;background:#1a1a1a;transition:width 0.3s;}
+.fullscreen-btn{position:fixed;top:1rem;right:1.5rem;background:#fff;border:3px solid #1a1a1a;color:#1a1a1a;padding:0.4rem 0.8rem;box-shadow:3px 3px 0 #1a1a1a;cursor:pointer;font-size:0.8rem;font-weight:900;text-transform:uppercase;}
+.fullscreen-btn:hover{background:#1a1a1a;color:#fff;}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<div class="header-info">
+  <h1>Proses Fotosintesis</h1>
+  <p>Konversi Energi Matahari menjadi Energi Kimia</p>
+</div>
+<button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+<div class="presentation">
+  
+  <div class="slide" id="slide-0">
+    <div class="slide-number">1 / 6</div>
+    <h2>Pembukaan</h2>
+    <ul>
+      <li>Pengenalan fotosintesis</li><li>Proses biokimia</li><li>Peran tanaman</li>
+    </ul>
+    <div class="catatan">💡 Fotosintesis adalah proses biokimia yang dilakukan oleh tanaman, alga, dan beberapa jenis bakteri untuk mengubah energi cahaya matahari menjadi energi kimia</div>
+  </div>
+
+  <div class="slide" id="slide-1">
+    <div class="slide-number">2 / 6</div>
+    <h2>Bahan dan Peralatan</h2>
+    <ul>
+      <li>Klorofil</li><li>Air</li><li>Karbondioksida</li><li>Cahaya matahari</li>
+    </ul>
+    <div class="catatan">💡 Bahan-bahan yang diperlukan untuk fotosintesis antara lain klorofil, air, karbondioksida, dan cahaya matahari</div>
+  </div>
+
+  <div class="slide" id="slide-2">
+    <div class="slide-number">3 / 6</div>
+    <h2>Proses Fotosintesis</h2>
+    <ul>
+      <li>Penyerapan cahaya</li><li>Pengubahan energi</li><li>Pembentukan glukosa</li>
+    </ul>
+    <div class="catatan">💡 Proses fotosintesis melibatkan penyerapan cahaya oleh klorofil, pengubahan energi cahaya menjadi energi kimia, dan pembentukan glukosa</div>
+  </div>
+
+  <div class="slide" id="slide-3">
+    <div class="slide-number">4 / 6</div>
+    <h2>Manfaat Fotosintesis</h2>
+    <ul>
+      <li>Produksi oksigen</li><li>Pembentukan makanan</li><li>Regulasi iklim</li>
+    </ul>
+    <div class="catatan">💡 Fotosintesis memiliki manfaat yang luas, termasuk produksi oksigen, pembentukan makanan, dan regulasi iklim</div>
+  </div>
+
+  <div class="slide" id="slide-4">
+    <div class="slide-number">5 / 6</div>
+    <h2>Faktor yang Mempengaruhi Fotosintesis</h2>
+    <ul>
+      <li>Intensitas cahaya</li><li>Suhu</li><li>Ketersediaan air</li><li>Konsentrasi karbondioksida</li>
+    </ul>
+    <div class="catatan">💡 Fotosintesis dipengaruhi oleh beberapa faktor, termasuk intensitas cahaya, suhu, ketersediaan air, dan konsentrasi karbondioksida</div>
+  </div>
+
+  <div class="slide" id="slide-5">
+    <div class="slide-number">6 / 6</div>
+    <h2>Penutup</h2>
+    <ul>
+      <li>Ringkasan fotosintesis</li><li>Pentingnya fotosintesis</li><li>Aplikasi fotosintesis</li>
+    </ul>
+    <div class="catatan">💡 Fotosintesis adalah proses biokimia yang sangat penting bagi kehidupan di Bumi, dan memahami proses ini dapat membantu kita mengapresiasi keindahan dan kompleksitas alam</div>
+  </div>
+
+</div>
+<div class="nav">
+  <button onclick="prevSlide()">← Prev</button>
+  <span id="nav-info">1 / 6</span>
+  <button onclick="nextSlide()">Next →</button>
+</div>
+<script>
+let cur=0;
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+function showSlide(n){
+  slides.forEach(s=>s.classList.remove('active'));
+  slides[n].classList.add('active');
+  document.getElementById('nav-info').textContent=(n+1)+' / '+total;
+  document.getElementById('progress').style.width=((n+1)/total*100)+'%';
+}
+function nextSlide(){if(cur<total-1){cur++;showSlide(cur);}}
+function prevSlide(){if(cur>0){cur--;showSlide(cur);}}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')nextSlide();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')prevSlide();
+});
+function toggleFullscreen(){
+  if(!document.fullscreenElement){document.documentElement.requestFullscreen();}
+  else{document.exitFullscreen();}
+}
+showSlide(0);
+</script>
+</body>
+</html>

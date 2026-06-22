@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tata Surya</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#0d1117;color:#fff;height:100vh;overflow:hidden;}
+.presentation{width:100%;height:100vh;position:relative;}
+.slide{display:none;width:100%;height:100vh;padding:4rem;flex-direction:column;justify-content:center;background:linear-gradient(135deg,#0d1117 0%,#1a1040 50%,#0d2137 100%);position:absolute;top:0;left:0;opacity:0;transition:opacity 0.4s;}
+.slide.active{display:flex;opacity:1;}
+.slide-number{position:absolute;top:1.5rem;right:2rem;color:rgba(255,255,255,0.3);font-size:0.85rem;}
+.slide h2{font-size:2.2rem;font-weight:700;margin-bottom:2rem;background:linear-gradient(90deg,#a855f7,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.slide ul{list-style:none;display:flex;flex-direction:column;gap:1rem;}
+.slide ul li{font-size:1.15rem;color:rgba(255,255,255,0.85);padding:0.8rem 1.2rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;border-left:3px solid #a855f7;line-height:1.6;}
+.catatan{margin-top:2rem;padding:1rem 1.5rem;background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.25);border-radius:10px;color:rgba(255,255,255,0.7);font-size:0.9rem;}
+.nav{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:1rem;align-items:center;background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:0.6rem 1.5rem;}
+.nav button{background:rgba(168,85,247,0.2);border:1px solid rgba(168,85,247,0.3);color:#a855f7;padding:0.5rem 1.2rem;border-radius:50px;cursor:pointer;font-size:0.9rem;transition:all 0.2s;}
+.nav button:hover{background:rgba(168,85,247,0.4);}
+.nav span{color:rgba(255,255,255,0.5);font-size:0.85rem;min-width:60px;text-align:center;}
+.header-info{position:fixed;top:1.5rem;left:2rem;}
+.header-info h1{font-size:1rem;color:#a855f7;font-weight:600;}
+.header-info p{font-size:0.75rem;color:rgba(255,255,255,0.4);}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#a855f7,#06b6d4);transition:width 0.3s;}
+.fullscreen-btn{position:fixed;top:1.5rem;right:2rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.5);padding:0.4rem 0.8rem;border-radius:8px;cursor:pointer;font-size:0.8rem;}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div>
+<div class="header-info">
+  <h1>Tata Surya</h1>
+  <p>Materi Kelas 6</p>
+</div>
+<button class="fullscreen-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+<div class="presentation">
+  
+  <div class="slide" id="slide-0">
+    <div class="slide-number">1 / 6</div>
+    <h2>Pembukaan</h2>
+    <ul>
+      <li>Tata surya adalah kumpulan benda langit</li><li>Mempelajari tata surya penting untuk memahami alam semesta</li><li>Kelas 6 akan membahas tentang tata surya</li>
+    </ul>
+    <div class="catatan">💡 Selamat datang di materi tata surya</div>
+  </div>
+
+  <div class="slide" id="slide-1">
+    <div class="slide-number">2 / 6</div>
+    <h2>Mengenal Matahari</h2>
+    <ul>
+      <li>Matahari adalah pusat tata surya</li><li>Matahari adalah bintang</li><li>Matahari memancarkan cahaya dan panas</li>
+    </ul>
+    <div class="catatan">💡 Matahari sangat penting bagi kehidupan di bumi</div>
+  </div>
+
+  <div class="slide" id="slide-2">
+    <div class="slide-number">3 / 6</div>
+    <h2>Planet-Planet di Tata Surya</h2>
+    <ul>
+      <li>Terdapat 8 planet di tata surya</li><li>Planet-planet tersebut adalah Merkurius, Venus, Bumi, Mars, Jupiter, Saturnus, Uranus, dan Neptunus</li><li>Masing-masing planet memiliki karakteristik unik</li>
+    </ul>
+    <div class="catatan">💡 Setiap planet memiliki ciri khas yang berbeda</div>
+  </div>
+
+  <div class="slide" id="slide-3">
+    <div class="slide-number">4 / 6</div>
+    <h2>Bulan dan Benda Langit Lain</h2>
+    <ul>
+      <li>Bulan adalah satelit alami bumi</li><li>Terdapat benda langit lain seperti asteroid dan komet</li><li>Benda-benda langit tersebut juga memiliki fungsi penting</li>
+    </ul>
+    <div class="catatan">💡 Benda langit lain juga mempengaruhi kehidupan di bumi</div>
+  </div>
+
+  <div class="slide" id="slide-4">
+    <div class="slide-number">5 / 6</div>
+    <h2>Manfaat Mempelajari Tata Surya</h2>
+    <ul>
+      <li>Mempelajari tata surya dapat meningkatkan pengetahuan</li><li>Mempelajari tata surya dapat memperluas wawasan</li><li>Mempelajari tata surya dapat membantu kita memahami alam semesta</li>
+    </ul>
+    <div class="catatan">💡 Mempelajari tata surya sangat bermanfaat</div>
+  </div>
+
+  <div class="slide" id="slide-5">
+    <div class="slide-number">6 / 6</div>
+    <h2>Penutup</h2>
+    <ul>
+      <li>Tata surya adalah kumpulan benda langit yang menarik</li><li>Mempelajari tata surya penting untuk memahami alam semesta</li><li>Terima kasih telah mengikuti materi tata surya</li>
+    </ul>
+    <div class="catatan">💡 Sampai jumpa di materi berikutnya</div>
+  </div>
+
+</div>
+<div class="nav">
+  <button onclick="prevSlide()">← Prev</button>
+  <span id="nav-info">1 / 6</span>
+  <button onclick="nextSlide()">Next →</button>
+</div>
+<script>
+let cur=0;
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+function showSlide(n){
+  slides.forEach(s=>s.classList.remove('active'));
+  slides[n].classList.add('active');
+  document.getElementById('nav-info').textContent=(n+1)+' / '+total;
+  document.getElementById('progress').style.width=((n+1)/total*100)+'%';
+}
+function nextSlide(){if(cur<total-1){cur++;showSlide(cur);}}
+function prevSlide(){if(cur>0){cur--;showSlide(cur);}}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')nextSlide();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')prevSlide();
+});
+function toggleFullscreen(){
+  if(!document.fullscreenElement){document.documentElement.requestFullscreen();}
+  else{document.exitFullscreen();}
+}
+showSlide(0);
+</script>
+</body>
+</html>
